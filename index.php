@@ -1,21 +1,17 @@
 <?php
-  session_start();
   require 'Function.php';
 
   if(isset($_POST["SignIn"])){
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-
-    $user = querryRead("SELECT * FROM user WHERE email = '$email'");
-
-    //PENGECEKAN PASSWORD
-    if(password_verify($password,$user[0]["password"])){
-      //CREATE SESSION
-      $_SESSION["login"] = true;
-    };
-    exit;
+    if(querryInsert($_POST) > 0){
+      echo "<script>
+              alert('Sign-in Berhasil!');
+            </script>";
+    }else{
+      echo mysqli_error($conn);
+    }
   };
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +38,8 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="../../index3.html" method="post">
+      <!-- action form dikosongkan, dipindah ke php setelah pengecekan (../../index3.html) -->
+      <form action="" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email">
           <div class="input-group-append">

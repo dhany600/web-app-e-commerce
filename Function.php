@@ -13,4 +13,27 @@
 
         return $rows;
     }
+
+    function querryInsert($querry){
+        global $conn;
+
+        $email = strtolower(stripslashes($querry["email"]));
+        $password = strtolower(stripslashes($querry["password"]));
+        $user = mysqli_query($conn,"SELECT * FROM user WHERE email = '$email'");
+
+        if(mysqli_fetch_assoc($user)){
+            echo "<script>
+                    alert('E-mail sudah terdaftar');
+                </script>";
+            return false;
+        }
+
+        //ENCRYPTING PASSWORD 
+        $password = password_hash($password,PASSWORD_DEFAULT);
+
+        //TAMBAHKAN KE DATABASE
+        mysqli_query($conn, "INSERT INTO user (password,email) VALUES ('$password','$email')");
+
+        return mysqli_affected_rows($conn);
+    }
 ?>
