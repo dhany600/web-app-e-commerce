@@ -1,3 +1,21 @@
+<?php
+  session_start();
+  require 'Function.php';
+
+  if(isset($_POST["SignIn"])){
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    $user = querryRead("SELECT * FROM user WHERE email = '$email'");
+
+    //PENGECEKAN PASSWORD
+    if(password_verify($password,$user[0]["password"])){
+      //CREATE SESSION
+      $_SESSION["login"] = true;
+    };
+    exit;
+  };
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +70,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block" name="SignIn">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
