@@ -1,15 +1,6 @@
 <?php
-  require 'Function.php';
-
-  if(isset($_POST["SignIn"])){
-    if(querryInsert($_POST) > 0){
-      echo "<script>
-              alert('Sign-in Berhasil!');
-            </script>";
-    }else{
-      echo mysqli_error($conn);
-    }
-  };
+  session_start();
+  require 'Function.php';    
 ?>
 
 <!DOCTYPE html>
