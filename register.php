@@ -1,3 +1,19 @@
+<?php
+    session_start();
+    require 'registerProccess.php';
+
+    if(!isset($_SESSION["Login"]) || $_SESSION["Login"] == false){
+        if(isset($_POST["Register"])){           
+            $insert = InsertUser($_POST);
+
+            if($insert > 0){
+                header("location: ../web-app-e-commerce/index.php");
+            }
+        }
+        
+    }else header("location: ../web-app-e-commerce/index3.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,10 +42,15 @@
         <div class="card">
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Register a new membership</p>
+                <?php if(isset($_POST["Register"])): ?>
+                    <?php if($insert == false): ?>
+                        <p>password salah</p> <!-- untuk penanda kedua password tidak sama -->
+                    <?php endif ?>
+                <?php endif; ?>           
 
-                <form action="index.html" method="post">
+                <form action="" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Username">
+                        <input type="text" class="form-control" placeholder="Username" name="username">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -37,7 +58,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" class="form-control" placeholder="Email" name="email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -45,7 +66,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" placeholder="Password" name="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -53,7 +74,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Retype password">
+                        <input type="password" class="form-control" placeholder="Retype password" name="retypePassword">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -63,7 +84,7 @@
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-md-12 my-3">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-block" name="Register">Register</button>
                         </div>
                         <!-- /.col -->
                     </div>

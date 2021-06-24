@@ -8,17 +8,8 @@
       $password = $_POST["password"];
   
       $loginState = login($username,$password);
-
-      // if(login($username,$password) == true){
-      //   $_SESSION["Login"] = true;
-      //   echo "<script>alert('login berhasil')</script>";
-      //   // header("location: ../web-app-e-commerce/index.php");//location harus diganti ke halaman home setelah login
-      // }else{
-      //   echo "<script>alert('password atau email salah!!')</script>";
-      //   // header ("location: ../web-app-e-commerce/index.php");
-      // }
     }
-  }else header("location: ../web-app-e-commerce/index3.php")
+  }else header("location: ../web-app-e-commerce/index3.php");
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +85,7 @@
         <a href="forgot-password.html">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a href="register.php" class="text-center">Register a new membership</a>
       </p>
     </div>
     <!-- /.login-card-body -->
