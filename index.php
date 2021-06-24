@@ -1,6 +1,24 @@
 <?php
   session_start();
-  require 'Function.php';    
+  require 'Login.php';
+
+  if(!isset($_SESSION["Login"]) || $_SESSION["Login"] == false){
+    if(isset($_POST["SignIn"])){
+      $username = strtolower($_POST["email"]);
+      $password = $_POST["password"];
+  
+      $loginState = login($username,$password);
+
+      // if(login($username,$password) == true){
+      //   $_SESSION["Login"] = true;
+      //   echo "<script>alert('login berhasil')</script>";
+      //   // header("location: ../web-app-e-commerce/index.php");//location harus diganti ke halaman home setelah login
+      // }else{
+      //   echo "<script>alert('password atau email salah!!')</script>";
+      //   // header ("location: ../web-app-e-commerce/index.php");
+      // }
+    }
+  }else header("location: ../web-app-e-commerce/index3.php")
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +46,14 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
+
+      <?php if(isset($loginState)):?>
+        <?php if($loginState == false):?>
+          <p>Login gagal</p> <!-- baris ini buat ganti tanda gagal login -->
+        <?php elseif($loginState == true) : ?>
+          <!-- <?php header("location: ../web-app-e-commerce/index3.php")?> redirect ke halaman setelah login sukses -->
+        <?php endif; ?>
+      <?php endif; ?>
 
       <!-- action form dikosongkan, dipindah ke php setelah pengecekan (../../index3.html) -->
       <form action="" method="post">
