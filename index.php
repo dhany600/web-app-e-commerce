@@ -9,7 +9,7 @@
   
       $loginState = login($username,$password);
     }
-  }else header("location: ../web-app-e-commerce/index3.php");
+  }else header("location: index3.php");
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +42,7 @@
         <?php if($loginState == false):?>
           <p>Login gagal</p> <!-- baris ini buat ganti tanda gagal login -->
         <?php elseif($loginState == true) : ?>
-          <!-- <?php header("location: ../web-app-e-commerce/index3.php")?> redirect ke halaman setelah login sukses -->
+          <!-- <?php header("location: index3.php")?> redirect ke halaman setelah login sukses -->
         <?php endif; ?>
       <?php endif; ?>
 
