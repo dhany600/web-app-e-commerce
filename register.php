@@ -7,11 +7,11 @@
             $insert = InsertUser($_POST);
 
             if($insert > 0){
-                header("location: ../web-app-e-commerce/index.php");
+                header("location: index.php");
             }
         }
         
-    }else header("location: ../web-app-e-commerce/index3.php");
+    }else header("location: index3.php");
 ?>
 
 <!DOCTYPE html>
