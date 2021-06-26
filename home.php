@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    require 'Function.php';
+    $idSession = $_SESSION["ID"];
+    
+    if(!isset($_SESSION["Login"]) || $_SESSION["Login"] == false){
+        header ("Location: index.php");
+    }
+
+    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession");
+    $resultUser = $resultUser[0];
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -16,9 +29,9 @@
             <img src="dist/img/img-src/web-logo.png" alt="">
             <div class="float-right">
                 <p class="username">
-                    Welcome Back <b>YaNTo KaTeS</b>
+                    Welcome Back <b><?= $resultUser["username"] ?></b>
                 </p>
-                <a href="#" class="logout-button">
+                <a href="ClearSession.php" class="logout-button">
                     Logout  
                 </a>
             </div>

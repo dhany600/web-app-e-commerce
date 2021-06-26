@@ -11,7 +11,7 @@
             }
         }
         
-    }else header("location: index3.php");
+    }else header("location: home.php");
 ?>
 
 <!DOCTYPE html>

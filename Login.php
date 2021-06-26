@@ -8,6 +8,7 @@
         if(mysqli_num_rows($result) > 0){
             $result = mysqli_fetch_assoc($result);
             if(password_verify($password,$result["password"])){
+                $_SESSION["ID"] = $result["ID"];
                 $_SESSION["Login"] = true;
                 return true;
             }else{
