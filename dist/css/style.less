@@ -1,0 +1,77 @@
+body{
+    padding : 0;
+    margin : 0;
+}
+
+.prelative{
+    margin: 30px;
+    padding: 60px 60px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Rubik,sans-serif;
+    font-weight: bold;
+    color: rgb(67, 72, 77);
+}
+
+p {
+    font-family: Rubik,sans-serif;
+    color: rgb(67, 72, 77);
+}
+
+a{
+    text-decoration: none;
+    color: rgb(67, 72, 77);
+}
+a:hover{
+    color: inherit;
+    border-radius: 10px;
+}
+
+section.header{
+    background-color: #fff;
+    box-shadow: 0px 1px 0px 0px #e5e5e5;
+    .float-right{
+        float: right;
+        .logout-button{
+            box-shadow: rgb(230 230 230) 0px 0px 5px 2px;
+            border-radius: 20px;
+            padding: 8px 10px;
+            font-size: 15px;
+            color: white;
+            background-color: red;
+        }
+        .logout-button:hover{
+            color: red;
+            background-color: white;
+            border: 1px solid red;
+        }
+    }
+}
+
+section.section-1.home{
+    .box-container:hover{
+        border: 1px solid lightblue;
+    }
+    .box-container{
+        box-shadow: rgb(230 230 230) 0px 0px 5px 2px;
+        height: 200px;
+        width: 95%;
+        overflow: hidden;
+        border-radius: 10px;
+        position: relative;
+        .product-price-catalog{
+            line-height: 200px;
+            font-size: 15px;
+            font-weight: 400;
+            font-family: Rubik;
+        }
+        .product-image-catalog{
+            height: 200px;
+            position: absolute;
+        }
+        .col-md-4{
+            position: relative;
+        }
+    }
+}

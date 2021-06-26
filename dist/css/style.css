@@ -1,0 +1,74 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.prelative {
+  margin: 30px;
+  padding: 60px 60px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Rubik, sans-serif;
+  font-weight: bold;
+  color: #43484d;
+}
+p {
+  font-family: Rubik, sans-serif;
+  color: #43484d;
+}
+a {
+  text-decoration: none;
+  color: #43484d;
+}
+a:hover {
+  color: inherit;
+  border-radius: 10px;
+}
+section.header {
+  background-color: #fff;
+  box-shadow: 0px 1px 0px 0px #e5e5e5;
+}
+section.header .float-right {
+  float: right;
+}
+section.header .float-right .logout-button {
+  box-shadow: #e6e6e6 0px 0px 5px 2px;
+  border-radius: 20px;
+  padding: 8px 10px;
+  font-size: 15px;
+  color: white;
+  background-color: red;
+}
+section.header .float-right .logout-button:hover {
+  color: red;
+  background-color: white;
+  border: 1px solid red;
+}
+section.section-1.home .box-container:hover {
+  border: 1px solid lightblue;
+}
+section.section-1.home .box-container {
+  box-shadow: #e6e6e6 0px 0px 5px 2px;
+  height: 200px;
+  width: 95%;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+section.section-1.home .box-container .product-price-catalog {
+  line-height: 200px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: Rubik;
+}
+section.section-1.home .box-container .product-image-catalog {
+  height: 200px;
+  position: absolute;
+}
+section.section-1.home .box-container .col-md-4 {
+  position: relative;
+}
