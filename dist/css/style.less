@@ -33,10 +33,13 @@ section.header{
     box-shadow: 0px 1px 0px 0px #e5e5e5;
     .float-right{
         float: right;
+        .username{
+            display: inline-block;
+        }
         .logout-button{
             box-shadow: rgb(230 230 230) 0px 0px 5px 2px;
             border-radius: 20px;
-            padding: 8px 10px;
+            padding: 6px 10px 8px 10px;
             font-size: 15px;
             color: white;
             background-color: red;
@@ -45,6 +48,7 @@ section.header{
             color: red;
             background-color: white;
             border: 1px solid red;
+            padding: 6px 10px 8px 10px;
         }
     }
 }
@@ -72,6 +76,51 @@ section.section-1.home{
         }
         .col-md-4{
             position: relative;
+        }
+    }
+}
+
+.section-1.product-detail{
+    .prelative{
+        box-shadow: 0px 1px 0px 0px #e5e5e5;
+        padding: 0 0 60px 0;
+        margin: 90px 90px 30px 90px;
+    }
+    .product-detail-image{
+        box-shadow: rgb(230 230 230) 0px 0px 5px 2px;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 100%;
+        &.main-image{
+            height: 380px;
+            width: 380px;
+        }
+        &.selection-image{
+            height: 75px;
+            width: 75px;
+        }
+    }
+    .product-title{
+        font-size: 42.0px;
+    }
+    .product-price{
+        box-shadow: 0px 1px 0px 0px #e5e5e5;
+        font-size: 25px;
+    }
+    .content-paragraph{
+        font-size: 18px;
+        max-width: 600px;
+        line-height: 25px;
+    }
+}
+
+.section-2.product-detail{
+    .content-box{
+        box-shadow: rgb(230 230 230) 0px 0px 5px 2px;
+        .content-image{
+            box-shadow: rgb(230 230 230) 0px 0px 5px 2px;
+            width: 180px;
+            height: 180px;
         }
     }
 }

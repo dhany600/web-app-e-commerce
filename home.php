@@ -12,32 +12,9 @@
     $resultBarang = querryRead("SELECT * FROM barang");
 ?>
 
-<!doctype html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="dist/css/style.css">
-    <title>Home</title>
-</head>
-
-<body>
-    <section class="header">
-        <div class="prelative py-3 mt-0">
-            <img src="dist/img/img-src/web-logo.png" alt="">
-            <div class="float-right">
-                <p class="username">
-                    Welcome Back <b><?= $resultUser["username"] ?></b>
-                </p>
-                <a href="ClearSession.php" class="logout-button">
-                    Logout  
-                </a>
-            </div>
-        </div>
-    </section>
+    <?php include 'header.php'; ?>
+    <!-- header -->
     <section class="section-1 home">
         <div class="prelative">
             <h3 class="content-title">
@@ -45,7 +22,7 @@
             </h3>
             <div class="row">
                 <?php for($i = 0; $i < count($resultBarang);$i++): ?>
-                    <div class="col-md-6 mt-5">
+                <div class="col-md-6 mt-5">
                     <a href="#">
                         <div class="box-container mr-3">
                             <div class="row">
@@ -58,12 +35,13 @@
                                     </p>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="dist/img/img-src/<?= $resultBarang[$i]["Gambar"] ?>" alt="" class="product-image-catalog">
+                                    <img src="dist/img/img-src/<?= $resultBarang[$i]["Gambar"] ?>" alt=""
+                                        class="product-image-catalog">
                                 </div>
                             </div>
                         </div>
                     </a>
-                    </div>
+                </div>
                 <?php endfor; ?>
                 <!-- <div class="col-md-6">
                 <a href="#">
