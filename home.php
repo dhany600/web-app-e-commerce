@@ -45,7 +45,7 @@
             </h3>
             <div class="row">
                 <?php for($i = 0; $i < count($resultBarang);$i++): ?>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mt-5">
                     <a href="#">
                         <div class="box-container mr-3">
                             <div class="row">
