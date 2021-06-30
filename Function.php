@@ -23,7 +23,7 @@
 
         if(mysqli_fetch_assoc($user)){
             echo "<script>
-                    alert('E-mail sudah terdaftar');
+                    alert('Data Gagal Dimasukan');
                 </script>";
             return false;
         }

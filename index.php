@@ -2,7 +2,11 @@
   session_start();
   require 'Login.php';
 
-  if(!isset($_SESSION["Login"]) || $_SESSION["Login"] == false){
+  if(isset($_SESSION["LoginAdmin"]) && $_SESSION["LoginAdmin"] == true){
+    header("location: admin-add-item.php");
+  }
+
+  if(!isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == false){
     if(isset($_POST["SignIn"])){
       $username = strtolower($_POST["email"]);
       $password = $_POST["password"];
@@ -42,7 +46,11 @@
         <?php if($loginState == false):?>
           <p>Login gagal</p> <!-- baris ini buat ganti tanda gagal login -->
         <?php elseif($loginState == true) : ?>
-          <!-- <?php header("location: home.php")?> redirect ke halaman setelah login sukses -->
+          <?php if($_SESSION["LoginUser"] == true): ?>
+            <?php header ("location: home.php") ?>
+          <?php elseif ($_SESSION["LoginAdmin"]): ?>
+            <?php header("location: admin-add-item.php") ?>
+          <?php endif; ?>
         <?php endif; ?>
       <?php endif; ?>
 

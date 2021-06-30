@@ -2,7 +2,7 @@
     session_start();
     require 'registerProccess.php';
 
-    if(!isset($_SESSION["Login"]) || $_SESSION["Login"] == false){
+    if(!isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == false){
         if(isset($_POST["Register"])){           
             $insert = InsertUser($_POST);
 

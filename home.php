@@ -3,13 +3,17 @@
     require 'Function.php';
     $idSession = $_SESSION["ID"];
     
-    if(!isset($_SESSION["Login"]) || $_SESSION["Login"] == false){
-        header ("Location: index.php");
+    if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false){
+        if(!isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == false){
+            header("location: index.php");
+        }
     }
 
     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession");
     $resultUser = $resultUser[0];
     $resultBarang = querryRead("SELECT * FROM barang");
+
+    $resultGambar = querryRead("SELECT * FROM gambar_barang");
 ?>
 
 
@@ -22,6 +26,8 @@
             </h3>
             <div class="row">
                 <?php for($i = 0; $i < count($resultBarang);$i++): ?>
+                <?php $idbarang = $resultBarang[$i]["ID"] ?>
+                <?php $resultGambar = querryRead("SELECT * FROM gambar_barang WHERE ID_Barang = $idbarang"); ?>
                 <div class="col-md-6 mt-5">
                     <a href="#">
                         <div class="box-container mr-3">
@@ -35,7 +41,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="dist/img/img-src/<?= $resultBarang[$i]["Gambar"] ?>" alt=""
+                                    <img src="dist/img/img-src/<?= $resultGambar[0]["Gambar"] ?>" alt=""
                                         class="product-image-catalog">
                                 </div>
                             </div>

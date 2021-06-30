@@ -1,3 +1,19 @@
+<?php 
+    session_start();
+    require 'add-item-proccess.php';
+
+    if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false)
+    {
+        if(!isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == false)
+        {
+            header("location: index.php") ;
+        }else header("location: home.php");
+    }
+
+    if(isset($_POST["addBarang"])){
+        insertBarang($_POST);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -174,7 +190,7 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="#" class="d-block">Nama Admin</a>
+                        <a href="#" class="d-block"><?= $idsession["username"] ?></a>
                     </div>
                 </div>
 
@@ -260,22 +276,22 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Nama Barang</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data">
+                                                placeholder="Masukan Data" name="name">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Harga Barang</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data">
+                                                placeholder="Masukan Data" name="price">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Jumlah Stock</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data">
+                                                placeholder="Masukan Data" name="stock">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Kategori</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data">
+                                                placeholder="Masukan Data" name="category">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputFile">Gambar Barang</label>
@@ -318,7 +334,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Deskripsi Barang</label>
-                                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"></textarea>
                                         </div>
                                         <div class="form-check">
                                         </div>
@@ -326,7 +342,7 @@
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Masukan</button>
+                                        <button type="submit" class="btn btn-primary" name="addBarang">Masukan</button>
                                     </div>
                                 </form>
                             </div>
