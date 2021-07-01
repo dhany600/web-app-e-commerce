@@ -3,13 +3,17 @@
     require 'Function.php';
     $idSession = $_SESSION["ID"];
     
-    if(!isset($_SESSION["Login"]) || $_SESSION["Login"] == false){
-        header ("Location: index.php");
+    if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false){
+        if(!isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == false){
+            header("location: index.php");
+        }
     }
 
-    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession");
+     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession");
     $resultUser = $resultUser[0];
     $resultBarang = querryRead("SELECT * FROM barang");
+
+    $resultGambar = querryRead("SELECT * FROM gambar_barang");
 ?>
 
 <?php include 'header.php'; ?>

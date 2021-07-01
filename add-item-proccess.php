@@ -14,7 +14,7 @@
         $kategoriBarang = $data["category"];
         $deskripsiBarang = $data["description"];
 
-        $resultAddStock = mysqli_querry($conn, "INSERT INTO barang (Nama, Deskripsi, Kategori, Harga, Stok) VALUES ($namaBarang, $deskripsiBarang, $kategoriBarang, $hargaBarang, $hargaBarang, $stokBarang)");
+        $resultAddStock = mysqli_query($conn, "INSERT INTO barang (Nama, Deskripsi, Kategori, Harga, Stok) VALUES ('$namaBarang', '$deskripsiBarang', $kategoriBarang, $hargaBarang, $stokBarang)");
         
         return mysqli_affected_rows($conn);
     }
