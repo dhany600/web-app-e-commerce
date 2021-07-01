@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 30, 2021 at 11:04 PM
+-- Generation Time: Jul 01, 2021 at 10:16 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -53,7 +53,7 @@ INSERT INTO `barang` (`ID`, `Nama`, `Deskripsi`, `Kategori`, `Harga`, `Stok`) VA
 
 CREATE TABLE `gambar_barang` (
   `ID_Barang` int(11) NOT NULL,
-  `Gambar` varchar(100) DEFAULT NULL
+  `Gambar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -63,7 +63,10 @@ CREATE TABLE `gambar_barang` (
 INSERT INTO `gambar_barang` (`ID_Barang`, `Gambar`) VALUES
 (1, 'product-image-1.jpg'),
 (3, 'default-150x150.png'),
-(4, 'default-150x150.png');
+(4, 'default-150x150.png'),
+(5, 'pexels-photo-2897883.jpeg'),
+(5, 'pexels-photo-3756679.jpeg'),
+(5, 'stock-photo-jakarta-indonesia-may-young-businessman-wearing-a-mask-while-looking-at-the-camera-and-1733996660.jpg');
 
 -- --------------------------------------------------------
 
@@ -100,12 +103,6 @@ ALTER TABLE `barang`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `gambar_barang`
---
-ALTER TABLE `gambar_barang`
-  ADD PRIMARY KEY (`ID_Barang`);
-
---
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -119,7 +116,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
