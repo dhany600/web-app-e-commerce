@@ -50,7 +50,10 @@ section.header .float-right .logout-button:hover {
   color: red;
   background-color: white;
   border: 1px solid red;
-  padding: 6px 10px 8px 10px;
+  padding: 6px 9px 8px 9px;
+}
+section.header .float-right .shopping-cart-icon {
+  font-size: 30px;
 }
 section.section-1.home .box-container:hover {
   border: 1px solid lightblue;
