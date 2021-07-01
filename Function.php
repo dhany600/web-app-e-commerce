@@ -36,4 +36,37 @@
 
         return mysqli_affected_rows($conn);
     }
+
+    function upload($namaFilesGambar){
+        $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+
+        $namaFile = $_FILES[$namaFilesGambar]["name"];
+        $tmpFile = $_FILES[$namaFilesGambar]["tmp_name"];
+
+        //pengecekan jenis file
+        $ekstensiGambar = explode(".", $namaFile);
+        $ekstensiGambar = strtolower(end($ekstensiGambar));
+        if( !in_array($ekstensiGambar,$ekstensiGambarValid)){
+            echo "<script>
+                    alert('pastikan yang anda upload gambar')
+                </script>";
+            return false;
+        }
+
+        $namaFilebaru = uniqid();
+        $namaFilebaru .= ".";
+        $namaFilebaru .= $ekstensiGambar; 
+
+        move_uploaded_file($tmpFile, 'dist/img/img-src-barang/' . $namaFilebaru);
+       
+        return $namaFilebaru;
+    }
+
+    function insertIntoDB($idbarang,$namagambar){
+        global $conn;
+
+        $insertGambar = mysqli_query($conn, "INSERT INTO gambar_barang VALUES ($idbarang,'$namagambar')");
+
+        return mysqli_affected_rows($conn);
+    }
 ?>

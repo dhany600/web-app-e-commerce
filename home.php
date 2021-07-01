@@ -41,7 +41,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="dist/img/img-src/<?= $resultGambar[0]["Gambar"] ?>" alt=""
+                                    <img src="dist/img/img-src-barang/<?= $resultGambar[0]["Gambar"] ?>" alt=""
                                         class="product-image-catalog">
                                 </div>
                             </div>

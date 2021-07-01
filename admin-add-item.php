@@ -12,7 +12,6 @@
 
     if(isset($_POST["addBarang"])){
         $insert = insertBarang($_POST);
-
         if($insert > 0){
             header("location: admin-add-item.php");
         }
@@ -265,7 +264,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form action="" method="post">
+                                <form action="" method="post" enctype="multipart/form-data">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Nama Barang</label>
@@ -296,7 +295,7 @@
                                             <label for="exampleInputFile">Gambar Barang</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile">
+                                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="thumb-gambar">
                                                     <label class="custom-file-label" for="exampleInputFile">Choose
                                                         file</label>
                                                 </div>
@@ -307,7 +306,7 @@
                                             <label for="exampleInputFile">Gambar Barang</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile">
+                                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar1">
                                                     <label class="custom-file-label" for="exampleInputFile">Choose
                                                         file</label>
                                                 </div>
@@ -318,7 +317,7 @@
                                             <label for="exampleInputFile">Gambar Barang</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile">
+                                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar2">
                                                     <label class="custom-file-label" for="exampleInputFile">Choose
                                                         file</label>
                                                 </div>
