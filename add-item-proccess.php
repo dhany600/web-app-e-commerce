@@ -16,5 +16,6 @@
 
         $resultAddStock = mysqli_querry($conn, "INSERT INTO barang (Nama, Deskripsi, Kategori, Harga, Stok) VALUES ($namaBarang, $deskripsiBarang, $kategoriBarang, $hargaBarang, $hargaBarang, $stokBarang)");
         
+        return mysqli_affected_rows($conn);
     }
 ?>

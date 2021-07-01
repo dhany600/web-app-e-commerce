@@ -11,7 +11,11 @@
     }
 
     if(isset($_POST["addBarang"])){
-        insertBarang($_POST);
+        $insert = insertBarang($_POST);
+
+        if($insert > 0){
+            echo "<script>alert('sukses input barang')</script>";
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -271,7 +275,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form>
+                                <form action="" method="post">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Nama Barang</label>
