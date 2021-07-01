@@ -49,9 +49,8 @@
             </ul>
 
             <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <li class="nav-item">
+            <!-- <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                         <i class="fas fa-search"></i>
                     </a>
@@ -72,8 +71,6 @@
                         </form>
                     </div>
                 </li>
-
-                <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-comments"></i>
@@ -81,7 +78,6 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
                             <div class="media">
                                 <img src="dist/img/user1-128x128.jpg" alt="User Avatar"
                                     class="img-size-50 mr-3 img-circle">
@@ -94,11 +90,9 @@
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
                             </div>
-                            <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
                             <div class="media">
                                 <img src="dist/img/user8-128x128.jpg" alt="User Avatar"
                                     class="img-size-50 img-circle mr-3">
@@ -111,11 +105,9 @@
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
                             </div>
-                            <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
                             <div class="media">
                                 <img src="dist/img/user3-128x128.jpg" alt="User Avatar"
                                     class="img-size-50 img-circle mr-3">
@@ -129,13 +121,11 @@
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
                             </div>
-                            <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                     </div>
                 </li>
-                <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-bell"></i>
@@ -172,7 +162,7 @@
                         <i class="fas fa-th-large"></i>
                     </a>
                 </li>
-            </ul>
+            </ul> -->
         </nav>
         <!-- /.navbar -->
 
@@ -290,8 +280,13 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Kategori</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data" name="category">
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputFile">Gambar Barang</label>
@@ -301,9 +296,7 @@
                                                     <label class="custom-file-label" for="exampleInputFile">Choose
                                                         file</label>
                                                 </div>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">Upload</span>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -314,9 +307,7 @@
                                                     <label class="custom-file-label" for="exampleInputFile">Choose
                                                         file</label>
                                                 </div>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">Upload</span>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -327,14 +318,13 @@
                                                     <label class="custom-file-label" for="exampleInputFile">Choose
                                                         file</label>
                                                 </div>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">Upload</span>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Deskripsi Barang</label>
-                                            <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="Enter ..."
+                                                name="description"></textarea>
                                         </div>
                                         <div class="form-check">
                                         </div>
