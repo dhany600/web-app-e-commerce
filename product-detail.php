@@ -2,6 +2,7 @@
     session_start();
     require 'Function.php';
     $idSession = $_SESSION["ID"];
+    $barang = $_GET["barang"];
     
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false){
         if(!isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == false){
@@ -9,11 +10,12 @@
         }
     }
 
-     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession");
+    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession");
     $resultUser = $resultUser[0];
-    $resultBarang = querryRead("SELECT * FROM barang");
+    $resultBarang = querryRead("SELECT * FROM barang WHERE ID = $barang");
+    $resultBarang = $resultBarang[0];
 
-    $resultGambar = querryRead("SELECT * FROM gambar_barang");
+    $resultGambar = querryRead("SELECT * FROM gambar_barang WHERE ID_Barang = $barang");
 ?>
 
 <?php include 'header.php'; ?>
@@ -27,7 +29,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-md-3">
-                        <img src="#" alt="" class="product-detail-image selection-image">
+                        <img src="dist/img/img-src-barang/<?= $resultGambar[0]["Gambar"] ?>" alt="" class="product-detail-image selection-image">
                     </div>
                     <div class="col-md-3">
                         <img src="#" alt="" class="product-detail-image selection-image">
@@ -42,20 +44,13 @@
             </div>
             <div class="col-md-6">
                 <h3 class="product-title">
-                    Lorem ipsum dolor sit amet
+                    <?= $resultBarang["Nama"] ?>
                 </h3>
                 <p class="product-price mt-3 pb-3">
-                    Rp.12345
+                    Rp.<?= number_format($resultBarang["Harga"],2) ?>
                 </p>
                 <p class="content-paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, porro modi quis fugit ipsum
-                    recusandae natus! Sed praesentium reprehenderit suscipit maxime nobis temporibus, porro minus rem
-                    doloribus obcaecati ipsum quia.
-                    <br>
-                    <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo beatae laboriosam aspernatur eligendi
-                    sed, sunt error hic fugit reprehenderit et harum facilis enim quaerat alias placeat. Voluptates
-                    quibusdam fugit dolores?
+                    <?= $resultBarang["Deskripsi"] ?>
                 </p>
             </div>
             <div class="col-md-2">

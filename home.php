@@ -29,7 +29,7 @@
                 <?php $idbarang = $resultBarang[$i]["ID"] ?>
                 <?php $resultGambar = querryRead("SELECT * FROM gambar_barang WHERE ID_Barang = $idbarang"); ?>
                 <div class="col-md-6 mt-5">
-                    <a href="#">
+                    <a href="product-detail.php?barang=<?= $idbarang ?>">
                         <div class="box-container mr-3">
                             <div class="row">
                                 <div class="col-md-8 px-5 py-4">
@@ -41,7 +41,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="dist/img/img-src/<?= $resultGambar[0]["Gambar"] ?>" alt=""
+                                    <img src="dist/img/img-src-barang/<?= $resultGambar[0]["Gambar"] ?>" alt=""
                                         class="product-image-catalog">
                                 </div>
                             </div>
