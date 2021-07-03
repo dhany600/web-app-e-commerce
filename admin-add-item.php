@@ -265,28 +265,28 @@
                             <!-- general form elements -->
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Quick Example</h3>
+                                    <h3 class="card-title">Data Tambah Barang</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <form action="" method="post" enctype="multipart/form-data">
-                                    <div class="card-body">
-                                        <div class="form-group">
+                                    <div class="card-body row">
+                                        <div class="form-group col-md-6">
                                             <label for="exampleInputEmail1">Nama Barang</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
                                                 placeholder="Masukan Data" name="name">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-3">
                                             <label for="exampleInputEmail1">Harga Barang</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
                                                 placeholder="Masukan Data" name="price">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-2">
                                             <label for="exampleInputEmail1">Jumlah Stock</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
                                                 placeholder="Masukan Data" name="stock">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-1">
                                             <label for="exampleInputEmail1">Kategori</label>
                                             <select class="form-control" id="exampleFormControlSelect1" name="category">
                                                 <option value="1">1</option>
@@ -296,7 +296,7 @@
                                                 <option value="5">5</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-4">
                                             <label for="exampleInputFile">Gambar Barang</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
@@ -307,7 +307,7 @@
                                                 
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-4">
                                             <label for="exampleInputFile">Gambar Barang</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
@@ -318,7 +318,7 @@
                                                 
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-4">
                                             <label for="exampleInputFile">Gambar Barang</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
@@ -329,9 +329,9 @@
                                                 
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-12">
                                             <label>Deskripsi Barang</label>
-                                            <textarea class="form-control" rows="3" placeholder="Enter ..."
+                                            <textarea class="form-control" rows="5" placeholder="Enter ..."
                                                 name="description"></textarea>
                                         </div>
                                         <div class="form-check">
