@@ -118,3 +118,24 @@ section.section-1.home .box-container .col-md-4 {
   width: 180px;
   height: 180px;
 }
+.shopping-cart-list .header-table-row {
+  border: 1px solid;
+}
+.shopping-cart-list .header-table-row .initial-table-border {
+  border-right: 1px solid;
+  padding: 20px;
+}
+.shopping-cart-list .header-table-row .last-table-border {
+  padding: 10px;
+}
+.shopping-cart-list .content-table-row {
+  border: 1px solid;
+  border-top: none;
+}
+.shopping-cart-list .content-table-row .initial-table-border {
+  border-right: 1px solid;
+  padding: 20px;
+}
+.shopping-cart-list .content-table-row .last-table-border {
+  padding: 10px;
+}
