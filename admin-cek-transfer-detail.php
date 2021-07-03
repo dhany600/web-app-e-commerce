@@ -54,8 +54,8 @@
                 </li> -->
             </ul>
             <a href="ClearSession.php" class="logout-button">
-                    Logout
-                </a>
+                Logout
+            </a>
             <!-- Right navbar links -->
             <!-- <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
@@ -229,7 +229,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Tambah Barang</h1>
+                            <h1>Edit</h1>
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
@@ -242,31 +242,99 @@
                         <!-- left column -->
                         <div class="col-md-12">
                             <!-- general form elements -->
-                            <div class="card card-primary">
+                            <div class="card card-success">
                                 <div class="card-header">
-                                    <h3 class="card-title">Data Tambah Barang</h3>
+                                    <h3 class="card-title">Data Barang</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <form action="" method="post" enctype="multipart/form-data">
-                                    <div class="card-body row">
+                                    <div class="row invoice-info p-3">
+                                        <div class="col-sm-4 invoice-col">
+                                            From
+                                            <address>
+                                                <strong>Admin, Inc.</strong><br>
+                                                795 Folsom Ave, Suite 600<br>
+                                                San Francisco, CA 94107<br>
+                                                Phone: (804) 123-5432<br>
+                                                Email: info@almasaeedstudio.com
+                                            </address>
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-sm-4 invoice-col">
+                                            To
+                                            <address>
+                                                <strong>John Doe</strong><br>
+                                                795 Folsom Ave, Suite 600<br>
+                                                San Francisco, CA 94107<br>
+                                                Phone: (555) 539-1037<br>
+                                                Email: john.doe@example.com
+                                            </address>
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-sm-4 invoice-col">
+                                            <b>Invoice #007612</b><br>
+                                            <br>
+                                            <b>Order ID:</b> 4F3S8J<br>
+                                            <b>Payment Due:</b> 2/22/2014<br>
+                                            <b>Account:</b> 968-34567
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <div class="row p-3">
+                                        <div class="col-12 table-responsive">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Qty</th>
+                                                        <th>Product</th>
+                                                        <th>Serial #</th>
+                                                        <th>Description</th>
+                                                        <th>Subtotal</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Call of Duty</td>
+                                                        <td>455-981-221</td>
+                                                        <td>El snort testosterone trophy driving gloves handsome</td>
+                                                        <td>$64.50</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Need for Speed IV</td>
+                                                        <td>247-925-726</td>
+                                                        <td>Wes Anderson umami biodiesel</td>
+                                                        <td>$50.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Monsters DVD</td>
+                                                        <td>735-845-642</td>
+                                                        <td>Terry Richardson helvetica tousled street art master</td>
+                                                        <td>$10.70</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Grown Ups Blue Ray</td>
+                                                        <td>422-568-642</td>
+                                                        <td>Tousled lomo letterpress</td>
+                                                        <td>$25.99</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                        <div class="card-body row">
                                         <div class="form-group col-md-6">
-                                            <label for="exampleInputEmail1">Nama Barang</label>
+                                            <label for="exampleInputEmail1">Nomor Resi</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
                                                 placeholder="Masukan Data" name="name">
                                         </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="exampleInputEmail1">Harga Barang</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data" name="price">
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="exampleInputEmail1">Jumlah Stock</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data" name="stock">
-                                        </div>
                                         <div class="form-group col-md-1">
-                                            <label for="exampleInputEmail1">Kategori</label>
+                                            <label for="exampleInputEmail1">Status</label>
                                             <select class="form-control" id="exampleFormControlSelect1" name="category">
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -275,43 +343,9 @@
                                                 <option value="5">5</option>
                                             </select>
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="exampleInputFile">Gambar Barang</label>
-                                            <div class="input-group">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="thumb-gambar">
-                                                    <label class="custom-file-label" for="exampleInputFile">Choose
-                                                        file</label>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="exampleInputFile">Gambar Barang</label>
-                                            <div class="input-group">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar1">
-                                                    <label class="custom-file-label" for="exampleInputFile">Choose
-                                                        file</label>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="exampleInputFile">Gambar Barang</label>
-                                            <div class="input-group">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar2">
-                                                    <label class="custom-file-label" for="exampleInputFile">Choose
-                                                        file</label>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label>Deskripsi Barang</label>
-                                            <textarea class="form-control" rows="5" placeholder="Enter ..."
-                                                name="description"></textarea>
+                                        <div class="form-group col-md-6">
+                                            <label>Gambar Bukti Transfer</label>
+                                            <img src="#" alt="" class="w-100">
                                         </div>
                                         <div class="form-check">
                                         </div>
@@ -319,7 +353,7 @@
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary" name="addBarang">Masukan</button>
+                                        <button type="submit" class="btn btn-primary" name="addBarang">Edit</button>
                                     </div>
                                 </form>
                             </div>
