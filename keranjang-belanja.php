@@ -55,7 +55,7 @@
         <div class="row content-table-row">
             <div class="col-md-2 initial-table-border">
                 <div class="header-table">
-                    Gambar
+                    <img src="#" alt="">
                 </div>
             </div>
             <div class="col-md-4 initial-table-border">
