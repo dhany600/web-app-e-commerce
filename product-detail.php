@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require 'Function.php';
+    require 'add-cart-item.php';
     $idSession = $_SESSION["ID"];
     
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false){
@@ -19,7 +19,12 @@
     }
 
     if(isset($_POST['addItem'])){
-        var_dump($_POST);
+        $resultCart = addCart($barang,$_POST["quantity"]);
+        if($resultCart === "outStock"){
+            echo "<script>alert('Stok Tidak Cukup')</script>";
+        }elseif($resultCart){
+            header("location: keranjang-belanja.php");
+        }
     }
 
     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession");
@@ -75,12 +80,12 @@
                     <label for="exampleInputEmail1" class="form-label">Quantity :</label>
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="email" class="form-control w-100" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="1">
+                            <input type="text" class="form-control w-100" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="1" name="quantity">
                         </div>
                         <div class="col-md-6">
                             <!-- <a href="add-cart-item.php?barang=<?= $barang ?>" onclick="return confirm('Ingin menambahkan item ke keranjang ?')"> -->
-                            <button type="button" class="btn btn-primary " name="addItem">Masukan</button>
+                            <button type="submit" class="btn btn-primary " name="addItem">Masukan</button>
                             <!-- </a> -->
                         </div>
                     </div>
@@ -96,7 +101,23 @@
             Cek Produk Terbaru Lainnya
         </h3>
         <div class="row">
-            <div class="col">
+            <?php
+                $resultNewestBarang = array_slice(querryRead("SELECT * FROM barang") ,-5);
+                for($i=count($resultNewestBarang)-1;$i >= 0;$i--):
+                    $idNewestBarang = $resultNewestBarang[$i]["ID"];
+                    $resultNewestGambarBarang = querryRead("SELECT * FROM gambar_barang WHERE ID_Barang = $idNewestBarang")[0];
+            ?>
+                <div class="col">
+                    <div class="content-box p-3">
+                        <img src="dist/img/img-src-barang/<?= $resultNewestGambarBarang["Gambar"]?>" alt="" class="content-image">
+                        <h4 class="content-title mt-3">
+                            <?= $resultNewestBarang[$i]["Nama"] ?>
+                        </h4>
+                        <p class="content-price mb-0">Rp <?= number_format($resultNewestBarang[$i]["Harga"],2) ?></p>
+                    </div>
+                </div>
+            <?php endfor ?>
+            <!-- <div class="col">
                 <div class="content-box p-3">
                     <img src="" alt="" class="content-image">
                     <h4 class="content-title mt-3">
@@ -140,7 +161,7 @@
                     </h4>
                     <p class="content-price mb-0">Rp 12345</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
