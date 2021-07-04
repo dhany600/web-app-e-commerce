@@ -54,8 +54,8 @@
                 </li> -->
             </ul>
             <a href="ClearSession.php" class="logout-button">
-                    Logout
-                </a>
+                Logout
+            </a>
             <!-- Right navbar links -->
             <!-- <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
@@ -229,7 +229,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Tambah Barang</h1>
+                            <h1>Edit</h1>
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
@@ -242,9 +242,9 @@
                         <!-- left column -->
                         <div class="col-md-12">
                             <!-- general form elements -->
-                            <div class="card card-primary">
+                            <div class="card card-success">
                                 <div class="card-header">
-                                    <h3 class="card-title">Data Tambah Barang</h3>
+                                    <h3 class="card-title">Data Barang</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
@@ -279,33 +279,36 @@
                                             <label for="exampleInputFile">Gambar Barang</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="thumb-gambar">
+                                                    <input type="file" class="custom-file-input" id="exampleInputFile"
+                                                        name="thumb-gambar">
                                                     <label class="custom-file-label" for="exampleInputFile">Choose
                                                         file</label>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="exampleInputFile">Gambar Barang</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar1">
+                                                    <input type="file" class="custom-file-input" id="exampleInputFile"
+                                                        name="gambar1">
                                                     <label class="custom-file-label" for="exampleInputFile">Choose
                                                         file</label>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="exampleInputFile">Gambar Barang</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar2">
+                                                    <input type="file" class="custom-file-input" id="exampleInputFile"
+                                                        name="gambar2">
                                                     <label class="custom-file-label" for="exampleInputFile">Choose
                                                         file</label>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
@@ -319,7 +322,7 @@
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary" name="addBarang">Masukan</button>
+                                        <button type="submit" class="btn btn-primary" name="addBarang">Edit</button>
                                     </div>
                                 </form>
                             </div>

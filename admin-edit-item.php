@@ -229,7 +229,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Tambah Barang</h1>
+                            <h1>Edit Barang</h1>
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
@@ -240,82 +240,129 @@
                 <div class="container-fluid">
                     <div class="row">
                         <!-- left column -->
-                        <div class="col-md-12">
+                        <div class="col-md-12 col-12">
                             <!-- general form elements -->
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Data Tambah Barang</h3>
+                                    <div class="row">
+                                        <div class="col-md-1 col-1">
+                                            <h3 class="card-title">No.</h3>
+                                        </div>
+                                        <div class="col-md-8 col-7">
+                                            <h3 class="card-title">Nama</h3>
+                                        </div>
+                                        <div class="col-md-1 col-2">
+                                            <h3 class="card-title">Stock</h3>
+                                        </div>
+                                        <div class="col-md-2 col-2">
+                                            <h3 class="card-title">Option</h3>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <div class="card-body row">
-                                        <div class="form-group col-md-6">
-                                            <label for="exampleInputEmail1">Nama Barang</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data" name="name">
+                                        <div class="col-md-1 col-1">
+                                            <h3 class="card-title">1</h3>
                                         </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="exampleInputEmail1">Harga Barang</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data" name="price">
+                                        <div class="col-md-8 col-7">
+                                            <h3 class="card-title">
+                                                <a href="#">
+                                                    lorem ipsum
+                                                </a>
+                                            </h3>
                                         </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="exampleInputEmail1">Jumlah Stock</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data" name="stock">
+                                        <div class="col-md-1 col-2">
+                                            <h3 class="card-title">811</h3>
                                         </div>
-                                        <div class="form-group col-md-1">
-                                            <label for="exampleInputEmail1">Kategori</label>
-                                            <select class="form-control" id="exampleFormControlSelect1" name="category">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="exampleInputFile">Gambar Barang</label>
-                                            <div class="input-group">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="thumb-gambar">
-                                                    <label class="custom-file-label" for="exampleInputFile">Choose
-                                                        file</label>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="exampleInputFile">Gambar Barang</label>
-                                            <div class="input-group">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar1">
-                                                    <label class="custom-file-label" for="exampleInputFile">Choose
-                                                        file</label>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="exampleInputFile">Gambar Barang</label>
-                                            <div class="input-group">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar2">
-                                                    <label class="custom-file-label" for="exampleInputFile">Choose
-                                                        file</label>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label>Deskripsi Barang</label>
-                                            <textarea class="form-control" rows="5" placeholder="Enter ..."
-                                                name="description"></textarea>
-                                        </div>
-                                        <div class="form-check">
+                                        <div class="col-md-2 col-2">
+                                            <h3 class="card-title">
+                                                <button type="button" class="btn btn-success mb-2">
+                                                    <i class="far fa-edit"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-danger mb-2">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </h3>
                                         </div>
                                     </div>
+                                    <div class="card-body row bg-light color-palette mx-0">
+                                        <div class="col-md-1 col-1 pl-0">
+                                            <h3 class="card-title">2</h3>
+                                        </div>
+                                        <div class="col-md-8 col-7 pl-0">
+                                            <h3 class="card-title">
+                                                <a href="#">
+                                                    lorem ipsum
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="col-md-1 col-2 pl-2">
+                                            <h3 class="card-title pl-1">42</h3>
+                                        </div>
+                                        <div class="col-md-2 col-2 pl-2">
+                                            <h3 class="card-title pl-1">
+                                                <button type="button" class="btn btn-success mb-2">
+                                                    <i class="far fa-edit"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-danger mb-2">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="card-body row">
+                                        <div class="col-md-1 col-1">
+                                            <h3 class="card-title">3</h3>
+                                        </div>
+                                        <div class="col-md-8 col-7">
+                                            <h3 class="card-title">
+                                                <a href="#">
+                                                    lorem ipsum
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="col-md-1 col-2">
+                                            <h3 class="card-title">81</h3>
+                                        </div>
+                                        <div class="col-md-2 col-2">
+                                            <h3 class="card-title">
+                                                <button type="button" class="btn btn-success mb-2">
+                                                    <i class="far fa-edit"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-danger mb-2">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="card-body row bg-light color-palette mx-0">
+                                        <div class="col-md-1 col-1 pl-0">
+                                            <h3 class="card-title">4</h3>
+                                        </div>
+                                        <div class="col-md-8 col-7 pl-0">
+                                            <h3 class="card-title">
+                                                <a href="#">
+                                                    lorem ipsum
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="col-md-1 col-2 pl-2">
+                                            <h3 class="card-title pl-1">428</h3>
+                                        </div>
+                                        <div class="col-md-2 col-2 pl-2">
+                                            <h3 class="card-title pl-1">
+                                                <button type="button" class="btn btn-success mb-2">
+                                                    <i class="far fa-edit"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-danger mb-2">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">

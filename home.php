@@ -30,7 +30,7 @@
                 <?php $resultGambar = querryRead("SELECT * FROM gambar_barang WHERE ID_Barang = $idbarang"); ?>
                 <div class="col-md-6 mt-5">
                     <a href="product-detail.php?barang=<?= $idbarang ?>">
-                        <div class="box-container mr-3">
+                        <div class="box-container mr-0">
                             <div class="row">
                                 <div class="col-md-8 px-5 py-4">
                                     <p class="product-title-catalog">
