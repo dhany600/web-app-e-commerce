@@ -52,8 +52,20 @@ section.header .float-right .logout-button:hover {
   border: 1px solid red;
   padding: 6px 9px 8px 9px;
 }
-section.header .float-right .shopping-cart-icon {
+section.header .float-right .navigation-button {
   font-size: 30px;
+}
+section.header .back-to-top {
+  position: fixed;
+  bottom: 3%;
+  right: 2%;
+  font-size: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0px 9px;
+}
+section.header .back-to-top:hover {
+  box-shadow: #e6e6e6 0px 0px 5px 2px;
 }
 section.section-1.home .box-container:hover {
   border: 1px solid lightblue;
@@ -61,10 +73,11 @@ section.section-1.home .box-container:hover {
 section.section-1.home .box-container {
   box-shadow: #e6e6e6 0px 0px 5px 2px;
   height: 200px;
-  width: 95%;
+  width: 98%;
   overflow: hidden;
   border-radius: 10px;
   position: relative;
+  margin: 0 auto;
 }
 section.section-1.home .box-container .product-price-catalog {
   line-height: 200px;
@@ -116,6 +129,14 @@ section.section-1.home .box-container .col-md-4 {
   width: 100%;
   min-height: 180px;
 }
+.section-2.product-detail .content-box .content-title {
+  min-height: 48px;
+  max-height: 48px;
+}
+.section-2.product-detail .col-2 {
+  margin-left: 1.6%;
+  margin-right: 1.6%;
+}
 .shopping-cart-list .header-table-row {
   border: 1px solid;
 }
@@ -136,4 +157,9 @@ section.section-1.home .box-container .col-md-4 {
 }
 .shopping-cart-list .content-table-row .last-table-border {
   padding: 10px;
+}
+.section-1.user-profile .container-box {
+  box-shadow: #e6e6e6 0px 0px 5px 2px;
+  border-radius: 10px;
+  padding: 35px;
 }
