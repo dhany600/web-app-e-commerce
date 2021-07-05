@@ -29,11 +29,12 @@
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="dist/css/style-admin.css">
 </head>
 
 
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini edit-item-detail">
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -285,6 +286,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="exampleInputFile">Gambar Barang</label>
+                                            <img src="#" alt="" class="image-box mb-3">
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="exampleInputFile"
@@ -297,6 +299,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="exampleInputFile">Gambar Barang</label>
+                                            <img src="#" alt="" class="image-box mb-3">
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="exampleInputFile"
@@ -309,6 +312,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="exampleInputFile">Gambar Barang</label>
+                                            <img src="#" alt="" class="image-box mb-3">
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="exampleInputFile"
