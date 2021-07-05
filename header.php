@@ -25,7 +25,7 @@
                     </a>
                 </div>
                 <div class="col-md-12">
-                    <a href="#" class="shopping-cart-icon">
+                    <a href="keranjang-belanja.php" class="shopping-cart-icon">
                         <i class="fas fa-cart-plus"></i>
                     </a>
                 </div>

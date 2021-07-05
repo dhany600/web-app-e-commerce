@@ -14,7 +14,6 @@
         $resultBarang = querryRead("SELECT * FROM barang WHERE ID = $barang");
         if(count($resultBarang) > 0){
             $resultBarang = $resultBarang[0];
-            $resultGambar = querryRead("SELECT * FROM gambar_barang WHERE ID_Barang = $barang");
         }
     }
 
@@ -47,17 +46,20 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-md-3">
-                        <img src="dist/img/img-src-barang/<?= $resultGambar[0]["Gambar"] ?>" alt=""
+                        <img src="dist/img/img-src-barang/<?= $resultBarang["thumbnail"] ?>" alt=""
                             class="product-detail-image selection-image">
                     </div>
                     <div class="col-md-3">
-                        <img src="#" alt="" class="product-detail-image selection-image">
+                        <img src="dist/img/img-src-barang/<?= $resultBarang["gambar_1"] ?>" alt=""
+                            class="product-detail-image selection-image">
                     </div>
                     <div class="col-md-3">
-                        <img src="#" alt="" class="product-detail-image selection-image">
+                        <img src="dist/img/img-src-barang/<?= $resultBarang["gambar_2"] ?>" alt=""
+                            class="product-detail-image selection-image">
                     </div>
                     <div class="col-md-3">
-                        <img src="#" alt="" class="product-detail-image selection-image">
+                        <img src="dist/img/img-src-barang/<?= $resultBarang["gambar_3"] ?>" alt=""
+                            class="product-detail-image selection-image">
                     </div>
                 </div>
             </div>
@@ -105,17 +107,17 @@
                 $resultNewestBarang = array_slice(querryRead("SELECT * FROM barang") ,-5);
                 for($i=count($resultNewestBarang)-1;$i >= 0;$i--):
                     $idNewestBarang = $resultNewestBarang[$i]["ID"];
-                    $resultNewestGambarBarang = querryRead("SELECT * FROM gambar_barang WHERE ID_Barang = $idNewestBarang")[0];
             ?>
-                <div class="col">
-                    <div class="content-box p-3">
-                        <img src="dist/img/img-src-barang/<?= $resultNewestGambarBarang["Gambar"]?>" alt="" class="content-image">
-                        <h4 class="content-title mt-3">
-                            <?= $resultNewestBarang[$i]["Nama"] ?>
-                        </h4>
-                        <p class="content-price mb-0">Rp <?= number_format($resultNewestBarang[$i]["Harga"],2) ?></p>
-                    </div>
+            <div class="col">
+                <div class="content-box p-3">
+                    <img src="dist/img/img-src-barang/<?= $resultNewestBarang[$i]["thumbnail"] ?>" alt=""
+                        class="content-image">
+                    <h4 class="content-title mt-3">
+                        <?= $resultNewestBarang[$i]["Nama"] ?>
+                    </h4>
+                    <p class="content-price mb-0">Rp <?= number_format($resultNewestBarang[$i]["Harga"],2) ?></p>
                 </div>
+            </div>
             <?php endfor ?>
             <!-- <div class="col">
                 <div class="content-box p-3">

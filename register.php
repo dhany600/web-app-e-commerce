@@ -43,8 +43,10 @@
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Register a new membership</p>
                 <?php if(isset($_POST["Register"])): ?>
-                    <?php if($insert == false): ?>
+                    <?php if($insert == "wrongPass"): ?>
                         <p>password salah</p> <!-- untuk penanda kedua password tidak sama -->
+                    <?php elseif($insert == "usedEmail"): ?>
+                        <p>E-mail telah Terdaftar</p>
                     <?php endif ?>
                 <?php endif; ?>           
 

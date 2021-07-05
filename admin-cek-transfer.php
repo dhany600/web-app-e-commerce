@@ -1,6 +1,9 @@
+<!-- Ganti Databse menjadi tranksaksi -->
+
 <?php 
     session_start();
-    require 'add-item-proccess.php';
+    require 'Function.php';
+    $idsession = $_SESSION["ID"];
 
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false)
     {
@@ -10,12 +13,17 @@
         }else header("location: home.php");
     }
 
+    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idsession")[0];
+
     if(isset($_POST["addBarang"])){
         $insert = insertBarang($_POST);
         if($insert > 0){
             header("location: admin-add-item.php");
         }
     }
+
+
+    $resultKeranjang = querryRead("SELECT * FROM keranjang_belanja");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -188,7 +196,7 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="#" class="d-block"><?= $idsession["username"] ?></a>
+                        <a href="#" class="d-block"><?= $resultUser["username"] ?></a>
                     </div>
                 </div>
 
@@ -265,30 +273,36 @@
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <form action="" method="post" enctype="multipart/form-data">
-                                    <div class="card-body row">
-                                        <div class="col-md-1 col-1">
-                                            <h3 class="card-title">1</h3>
+                                    <?php 
+                                        for($i=0;$i<count($resultKeranjang);$i++):
+                                            $userID = $resultKeranjang[$i]["ID_user"];
+                                            $resultUserforKeranjang = querryRead("SELECT * FROM user WHERE ID = $userID")[0];
+                                    ?>
+                                        <div class="card-body row <?php if($i%2 != 0) echo " bg-light color-palette mx-0"?>">
+                                            <div class="col-md-1 col-1">
+                                                <h3 class="card-title"><?= $i+1 ?></h3>
+                                            </div>
+                                            <div class="col-md-6 col-5">
+                                                <h3 class="card-title">
+                                                    <a href="#">
+                                                        lorem ipsum
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div class="col-md-1 col-2">
+                                                <h3 class="card-title"><?= $resultUserforKeranjang["username"] ?></h3>
+                                            </div>
+                                            <div class="col-md-1 col-2">
+                                                <h3 class="card-title">811</h3>
+                                            </div>
+                                            <div class="col-md-2 col-2">
+                                                <p>
+                                                    Date Here
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6 col-5">
-                                            <h3 class="card-title">
-                                                <a href="#">
-                                                    lorem ipsum
-                                                </a>
-                                            </h3>
-                                        </div>
-                                        <div class="col-md-1 col-2">
-                                            <h3 class="card-title">User Here</h3>
-                                        </div>
-                                        <div class="col-md-1 col-2">
-                                            <h3 class="card-title">811</h3>
-                                        </div>
-                                        <div class="col-md-2 col-2">
-                                            <p>
-                                                Date Here
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="card-body row bg-light color-palette mx-0">
+                                    <?php endfor ?>
+                                    <!-- <div class="card-body row bg-light color-palette mx-0">
                                         <div class="col-md-1 col-1 pl-0">
                                             <h3 class="card-title">2</h3>
                                         </div>
@@ -310,7 +324,7 @@
                                                 Date Here
                                             </p>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     
                                     <!-- /.card-body -->
 

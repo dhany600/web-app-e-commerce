@@ -1,6 +1,8 @@
 <?php 
     session_start();
     require 'add-item-proccess.php';
+    $idsession = $_SESSION["ID"];
+    $idsession = querryRead("SELECT * FROM user WHERE id = $idsession")[0];
 
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false)
     {
@@ -10,12 +12,7 @@
         }else header("location: home.php");
     }
 
-    if(isset($_POST["addBarang"])){
-        $insert = insertBarang($_POST);
-        if($insert > 0){
-            header("location: admin-add-item.php");
-        }
-    }
+    $resultBarang = querryRead("SELECT * FROM barang");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,8 +51,8 @@
                 </li> -->
             </ul>
             <a href="ClearSession.php" class="logout-button">
-                    Logout
-                </a>
+                Logout
+            </a>
             <!-- Right navbar links -->
             <!-- <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
@@ -262,107 +259,38 @@
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <form action="" method="post" enctype="multipart/form-data">
-                                    <div class="card-body row">
-                                        <div class="col-md-1 col-1">
-                                            <h3 class="card-title">1</h3>
+                                    <?php
+                                        for($i=0;$i<count($resultBarang);$i++):
+                                    ?>
+                                        <div class="card-body row">
+                                            <div class="col-md-1 col-1">
+                                                <h3 class="card-title"><?= $i+1 ?></h3>
+                                            </div>
+                                            <div class="col-md-8 col-7">
+                                                <h3 class="card-title">
+                                                    <a href="admin-edit-item-detail.php?barang=<?= $resultBarang[$i]["ID"] ?>">
+                                                        <?= $resultBarang[$i]["Nama"] ?>
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div class="col-md-1 col-2">
+                                                <h3 class="card-title">
+                                                    <?= $resultBarang[$i]["Stok"] ?>
+                                                </h3>
+                                            </div>
+                                            <div class="col-md-2 col-2">
+                                                <h3 class="card-title">
+                                                    <button type="button" class="btn btn-success mb-2">
+                                                        <i class="far fa-edit"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger mb-2">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </h3>
+                                            </div>
                                         </div>
-                                        <div class="col-md-8 col-7">
-                                            <h3 class="card-title">
-                                                <a href="#">
-                                                    lorem ipsum
-                                                </a>
-                                            </h3>
-                                        </div>
-                                        <div class="col-md-1 col-2">
-                                            <h3 class="card-title">811</h3>
-                                        </div>
-                                        <div class="col-md-2 col-2">
-                                            <h3 class="card-title">
-                                                <button type="button" class="btn btn-success mb-2">
-                                                    <i class="far fa-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-danger mb-2">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="card-body row bg-light color-palette mx-0">
-                                        <div class="col-md-1 col-1 pl-0">
-                                            <h3 class="card-title">2</h3>
-                                        </div>
-                                        <div class="col-md-8 col-7 pl-0">
-                                            <h3 class="card-title">
-                                                <a href="#">
-                                                    lorem ipsum
-                                                </a>
-                                            </h3>
-                                        </div>
-                                        <div class="col-md-1 col-2 pl-2">
-                                            <h3 class="card-title pl-1">42</h3>
-                                        </div>
-                                        <div class="col-md-2 col-2 pl-2">
-                                            <h3 class="card-title pl-1">
-                                                <button type="button" class="btn btn-success mb-2">
-                                                    <i class="far fa-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-danger mb-2">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="card-body row">
-                                        <div class="col-md-1 col-1">
-                                            <h3 class="card-title">3</h3>
-                                        </div>
-                                        <div class="col-md-8 col-7">
-                                            <h3 class="card-title">
-                                                <a href="#">
-                                                    lorem ipsum
-                                                </a>
-                                            </h3>
-                                        </div>
-                                        <div class="col-md-1 col-2">
-                                            <h3 class="card-title">81</h3>
-                                        </div>
-                                        <div class="col-md-2 col-2">
-                                            <h3 class="card-title">
-                                                <button type="button" class="btn btn-success mb-2">
-                                                    <i class="far fa-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-danger mb-2">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="card-body row bg-light color-palette mx-0">
-                                        <div class="col-md-1 col-1 pl-0">
-                                            <h3 class="card-title">4</h3>
-                                        </div>
-                                        <div class="col-md-8 col-7 pl-0">
-                                            <h3 class="card-title">
-                                                <a href="#">
-                                                    lorem ipsum
-                                                </a>
-                                            </h3>
-                                        </div>
-                                        <div class="col-md-1 col-2 pl-2">
-                                            <h3 class="card-title pl-1">428</h3>
-                                        </div>
-                                        <div class="col-md-2 col-2 pl-2">
-                                            <h3 class="card-title pl-1">
-                                                <button type="button" class="btn btn-success mb-2">
-                                                    <i class="far fa-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-danger mb-2">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    
+                                    <?php endfor?>
+
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">

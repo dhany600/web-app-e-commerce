@@ -1,6 +1,7 @@
 <?php 
+// Kategori Dirubah menjadi 2 dengan jenis data String
     session_start();
-    require 'add-item-proccess.php';
+    require 'edit-item-proccess.php';
 
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false)
     {
@@ -10,12 +11,8 @@
         }else header("location: home.php");
     }
 
-    if(isset($_POST["addBarang"])){
-        $insert = insertBarang($_POST);
-        if($insert > 0){
-            header("location: admin-add-item.php");
-        }
-    }
+    $barang = $_GET["barang"];
+    $resultBarang = querryRead("SELECT * FROM barang WHERE ID = $barang")[0]
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -224,6 +221,17 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            <?php if(!isset($_GET["barang"])): ?>
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1>Barang Tidak Ditemukan</h1>
+                            </div>
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </section>
+            <?php else: ?>
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
@@ -253,21 +261,21 @@
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputEmail1">Nama Barang</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data" name="name">
+                                                placeholder="Masukan Data" name="name" value="<?= $resultBarang["Nama"] ?>">
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label for="exampleInputEmail1">Harga Barang</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data" name="price">
+                                                placeholder="Masukan Data" name="price" value="<?= $resultBarang["Harga"] ?>">
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="exampleInputEmail1">Jumlah Stock</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data" name="stock">
+                                                placeholder="Masukan Data" name="stock" value="<?= $resultBarang["Stok"] ?>">
                                         </div>
                                         <div class="form-group col-md-1">
                                             <label for="exampleInputEmail1">Kategori</label>
-                                            <select class="form-control" id="exampleFormControlSelect1" name="category">
+                                            <select class="form-control" id="exampleFormControlSelect1" name="category" selected="<?= $resultBarang["kategori"] ?>">
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -334,6 +342,7 @@
                 </div><!-- /.container-fluid -->
             </section>
             <!-- /.content -->
+            <?php endif ?>
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">

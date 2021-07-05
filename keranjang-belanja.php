@@ -54,7 +54,6 @@
         </div>
         <?php for($i = 0 ; $i < count($resultKeranjang) ; $i++): 
                     $idbarangkeranjang = $resultKeranjang[$i]["ID_Barang"];
-                    $gambarKeranjang = querryRead("SELECT * FROM gambar_barang WHERE ID_Barang = $idbarangkeranjang")[0];
                     $barangKeranjang = querryRead("SELECT * FROM barang WHERE ID = $idbarangkeranjang")[0];
                     $hargabarang = $barangKeranjang["Harga"];
                     $quantity = $resultKeranjang[$i]["jumlah_barang"];
@@ -63,7 +62,7 @@
             <div class="row content-table-row">
                 <div class="col-md-2 initial-table-border">
                     <div class="header-table">
-                        <img class="w-100" src="dist/img/img-src-barang/<?= $gambarKeranjang["Gambar"] ?>" alt="">
+                        <img class="w-100" src="dist/img/img-src-barang/<?= $barangKeranjang["thumbnail"] ?>" alt="">
                     </div>
                 </div>
                 <div class="col-md-4 initial-table-border">

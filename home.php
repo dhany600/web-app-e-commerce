@@ -12,8 +12,6 @@
     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession");
     $resultUser = $resultUser[0];
     $resultBarang = querryRead("SELECT * FROM barang");
-
-    $resultGambar = querryRead("SELECT * FROM gambar_barang");
 ?>
 
 
@@ -25,9 +23,10 @@
                 Product
             </h3>
             <div class="row">
-                <?php for($i = 0; $i < count($resultBarang);$i++): ?>
-                <?php $idbarang = $resultBarang[$i]["ID"] ?>
-                <?php $resultGambar = querryRead("SELECT * FROM gambar_barang WHERE ID_Barang = $idbarang"); ?>
+                <?php
+                    for($i = 0; $i < count($resultBarang);$i++): 
+                        $idbarang = $resultBarang[$i]["ID"];
+                ?>
                 <div class="col-md-6 mt-5">
                     <a href="product-detail.php?barang=<?= $idbarang ?>">
                         <div class="box-container mr-0">
@@ -41,7 +40,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="dist/img/img-src-barang/<?= $resultGambar[0]["Gambar"] ?>" alt=""
+                                    <img src="dist/img/img-src-barang/<?= $resultBarang[$i]["thumbnail"] ?>" alt=""
                                         class="product-image-catalog">
                                 </div>
                             </div>

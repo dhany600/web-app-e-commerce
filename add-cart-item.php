@@ -20,7 +20,7 @@
             
         }else{
             if($quantity <= $stokBarang){
-                $resultAddCart = mysqli_query($conn, "INSERT INTO keranjang_belanja VALUES ($idsession,$barang,$quantity)");
+                $resultAddCart = mysqli_query($conn, "INSERT INTO keranjang_belanja (ID_user,ID_Barang,jumlah_barang) VALUES ($idsession,$barang,$quantity)");
                 if(mysqli_affected_rows($conn)){
                     return true;
                 }else return false;

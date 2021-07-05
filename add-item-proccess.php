@@ -1,8 +1,7 @@
 <?php
     require 'Function.php';
     $idsession = $_SESSION["ID"];
-    $idsession = querryRead("SELECT * FROM user WHERE id = $idsession");
-    $idsession = $idsession[0];
+    $idsession = querryRead("SELECT * FROM user WHERE id = $idsession")[0];
 
     function insertBarang($data)
     {
@@ -14,14 +13,15 @@
         $kategoriBarang = $data["category"];
         $deskripsiBarang = $data["description"];
         $namaFileGambar = ["thumb-gambar", "gambar1", "gambar2"];
-
-        $resultAddStock = mysqli_query($conn, "INSERT INTO barang (Nama, Deskripsi, Kategori, Harga, Stok) VALUES ('$namaBarang', '$deskripsiBarang', $kategoriBarang, $hargaBarang, $stokBarang)");
-        $idBarangTerakhir = mysqli_insert_id($conn);
+        $insertGambar = [];
 
         for($i=0;$i<3;$i++){
             $namaGambar = upload($namaFileGambar[$i]);
-            $insertGambar = insertIntoDB($idBarangTerakhir,$namaGambar);
+            array_push($insertGambar,$namaGambar);
         }
+
+        $resultAddStock = mysqli_query($conn, "INSERT INTO barang (Nama, Deskripsi, Kategori, Harga, Stok, thumbnail, gambar_1, gambar_2) VALUES ('$namaBarang', '$deskripsiBarang', $kategoriBarang, $hargaBarang, $stokBarang, '$insertGambar[0]', '$insertGambar[1]', '$insertGambar[2]')");
+        $idBarangTerakhir = mysqli_insert_id($conn);
 
         return mysqli_affected_rows($conn);
     }
