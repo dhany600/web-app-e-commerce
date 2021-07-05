@@ -14,7 +14,7 @@
 <body>
     <section class="header">
         <div class="prelative py-3 mt-0">
-            <img src="dist/img/img-src/web-logo.png" alt="">
+            <img src="dist/img/img-src/web-logo.png" alt="" id="kembali-keatas">
             <div class="float-right">
                 <div class="col-md-12">
                     <p class="username">
@@ -25,10 +25,19 @@
                     </a>
                 </div>
                 <div class="col-md-12">
-                    <a href="#" class="shopping-cart-icon">
+                    <a href="#" class="navigation-button">
                         <i class="fas fa-cart-plus"></i>
+                    </a>
+                    <a href="#" class="navigation-button">
+                        <i class="fas fa-history"></i>
+                    </a>
+                    <a href="#" class="navigation-button">
+                        <i class="fas fa-user"></i>
                     </a>
                 </div>
             </div>
+            <a class="back-to-top" href="#kembali-keatas">
+                <i class="fas fa-arrow-up"></i>
+            </a>
         </div>
     </section>

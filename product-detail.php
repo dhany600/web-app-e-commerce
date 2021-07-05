@@ -105,12 +105,12 @@
                 $resultNewestBarang = array_slice(querryRead("SELECT * FROM barang") ,-5);
                 for($i=count($resultNewestBarang)-1;$i >= 0;$i--):
                     $idNewestBarang = $resultNewestBarang[$i]["ID"];
-                    $resultNewestGambarBarang = querryRead("SELECT * FROM gambar_barang WHERE ID_Barang = $idNewestBarang")[0];
+                    $resultNewestGambarBarang = querryRead("SELECT * FROM gambar_barang WHERE ID_Barang = $idNewestBarang");
             ?>
-                <div class="col">
+                <div class="col-2 ">
                     <div class="content-box p-3">
                         <img src="dist/img/img-src-barang/<?= $resultNewestGambarBarang["Gambar"]?>" alt="" class="content-image">
-                        <h4 class="content-title mt-3">
+                        <h4 class="content-title mb-3 mt-3">
                             <?= $resultNewestBarang[$i]["Nama"] ?>
                         </h4>
                         <p class="content-price mb-0">Rp <?= number_format($resultNewestBarang[$i]["Harga"],2) ?></p>
