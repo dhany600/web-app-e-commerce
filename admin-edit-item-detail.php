@@ -11,8 +11,10 @@
         }else header("location: home.php");
     }
 
-    $barang = $_GET["barang"];
-    $resultBarang = querryRead("SELECT * FROM barang WHERE ID = $barang")[0]
+    if(isset($_GET["barang"])){
+        $barang = $_GET["barang"];
+        $resultBarang = querryRead("SELECT * FROM barang WHERE ID = $barang")[0];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -322,7 +324,7 @@
                                         <div class="form-group col-md-12">
                                             <label>Deskripsi Barang</label>
                                             <textarea class="form-control" rows="5" placeholder="Enter ..."
-                                                name="description"></textarea>
+                                                name="description"><?= $resultBarang["Deskripsi"] ?></textarea>
                                         </div>
                                         <div class="form-check">
                                         </div>
