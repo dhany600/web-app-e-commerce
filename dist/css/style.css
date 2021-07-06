@@ -28,6 +28,21 @@ a:hover {
   color: inherit;
   border-radius: 10px;
 }
+.gagal-menn {
+  color: black;
+}
+.bayaren {
+  color: red;
+}
+.waiting-payment {
+  color: yellow;
+}
+.on-shipment {
+  color: green;
+}
+.item-arrived {
+  color: blue;
+}
 section.header {
   background-color: #fff;
   box-shadow: 0px 1px 0px 0px #e5e5e5;
@@ -60,12 +75,14 @@ section.header .back-to-top {
   bottom: 3%;
   right: 2%;
   font-size: 30px;
-  border: 1px solid black;
-  border-radius: 10px;
+  border: 2px solid black;
+  border-radius: 15px;
   padding: 0px 9px;
+  background-color: #fff;
 }
 section.header .back-to-top:hover {
   box-shadow: #e6e6e6 0px 0px 5px 2px;
+  background-color: #fff;
 }
 section.section-1.home .box-container:hover {
   border: 1px solid lightblue;
@@ -187,21 +204,21 @@ section.section-1.home .box-container .col-md-4 {
   padding: 15px;
   text-align: left;
 }
-.section-1.transaction-list .box-container-content .col-md-3 .gagal-menn {
-  color: black;
-}
-.section-1.transaction-list .box-container-content .col-md-3 .bayaren {
-  color: red;
-}
-.section-1.transaction-list .box-container-content .col-md-3 .waiting-payment {
-  color: yellow;
-}
-.section-1.transaction-list .box-container-content .col-md-3 .on-shipment {
-  color: green;
-}
-.section-1.transaction-list .box-container-content .col-md-3 .item-arrived {
-  color: blue;
-}
 .section-1.transaction-list .box-container-content .no-border-left {
   padding-left: 30px;
+}
+.section-footer {
+  border-top: 1px #e5e5e5 solid;
+  background-color: #fec20d;
+  color: white;
+}
+.section-footer .footer-social-media .content-title.media-social-icon-item {
+  display: inline-block;
+  padding-left: 20px;
+}
+.section-footer .footer-social-media .content-title.first-item {
+  padding-left: 0;
+}
+.section-footer .signature-footer {
+  float: right;
 }
