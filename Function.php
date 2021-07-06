@@ -10,7 +10,7 @@
         while ($row = mysqli_fetch_assoc($result)){
             $rows[] = $row;
         }
-
+        
         return $rows;
     }
 
@@ -38,28 +38,33 @@
     }
 
     function upload($namaFilesGambar){
-        $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+        $errorState = $_FILES[$namaFilesGambar]["error"];
+        if($errorState === 4){
+            return "noPict";
+        }else{
+            $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
 
-        $namaFile = $_FILES[$namaFilesGambar]["name"];
-        $tmpFile = $_FILES[$namaFilesGambar]["tmp_name"];
+            $namaFile = $_FILES[$namaFilesGambar]["name"];
+            $tmpFile = $_FILES[$namaFilesGambar]["tmp_name"];
 
-        //pengecekan jenis file
-        $ekstensiGambar = explode(".", $namaFile);
-        $ekstensiGambar = strtolower(end($ekstensiGambar));
-        if( !in_array($ekstensiGambar,$ekstensiGambarValid)){
-            echo "<script>
-                    alert('pastikan yang anda upload gambar')
-                </script>";
-            return false;
-        }
+             //pengecekan jenis file
+            $ekstensiGambar = explode(".", $namaFile);
+            $ekstensiGambar = strtolower(end($ekstensiGambar));
+            if( !in_array($ekstensiGambar,$ekstensiGambarValid)){
+                echo "<script>
+                        alert('pastikan yang anda upload gambar')
+                    </script>";
+                return false;
+            }
 
-        $namaFilebaru = uniqid();
-        $namaFilebaru .= ".";
-        $namaFilebaru .= $ekstensiGambar; 
+            $namaFilebaru = uniqid();
+            $namaFilebaru .= ".";
+            $namaFilebaru .= $ekstensiGambar; 
 
-        move_uploaded_file($tmpFile, 'dist/img/img-src-barang/' . $namaFilebaru);
-       
-        return $namaFilebaru;
+            move_uploaded_file($tmpFile, 'dist/img/img-src-barang/' . $namaFilebaru);
+        
+            return $namaFilebaru;
+        }       
     }
 
     function insertIntoDB($idbarang,$namagambar){

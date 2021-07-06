@@ -14,6 +14,11 @@
     if(isset($_GET["barang"])){
         $barang = $_GET["barang"];
         $resultBarang = querryRead("SELECT * FROM barang WHERE ID = $barang")[0];
+
+        if(isset($_POST["updateBarang"])){
+            $resultUpdate = updateBarang($_POST,$barang);
+            header("location:".$_SERVER['REQUEST_URI']);
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -279,16 +284,21 @@
                                         <div class="form-group col-md-1">
                                             <label for="exampleInputEmail1">Kategori</label>
                                             <select class="form-control" id="exampleFormControlSelect1" name="category" selected="<?= $resultBarang["kategori"] ?>">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
+                                                <?php if($resultBarang["Kategori"] == "freebase"): ?>
+                                                    <option value="freebase" selected>Free Base</option>
+                                                    <option value="saltnic">Salt Nicotine</option>
+                                                <?php elseif($resultBarang["Kategori"] == "saltnic"): ?>
+                                                    <option value="freebase">Free Base</option>
+                                                    <option value="saltnic" selected>Salt Nicotine</option>
+                                                <?php else: ?>
+                                                    <option value="freebase">Free Base</option>
+                                                    <option value="saltnic">Salt Nicotine</option>
+                                                <?php endif ?>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="exampleInputFile">Gambar Barang</label>
-                                            <img src="#" alt="" class="image-box mb-3">
+                                            <img src="dist/img/img-src-barang/<?= $resultBarang["thumbnail"] ?>" alt="" class="image-box mb-3">
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="exampleInputFile"
@@ -301,7 +311,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="exampleInputFile">Gambar Barang</label>
-                                            <img src="#" alt="" class="image-box mb-3">
+                                            <img src="dist/img/img-src-barang/<?= $resultBarang["gambar_1"] ?>" alt="" class="image-box mb-3">
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="exampleInputFile"
@@ -314,7 +324,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="exampleInputFile">Gambar Barang</label>
-                                            <img src="#" alt="" class="image-box mb-3">
+                                            <img src="dist/img/img-src-barang/<?= $resultBarang["gambar_2"] ?>" alt="" class="image-box mb-3">
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="exampleInputFile"
@@ -336,7 +346,7 @@
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary" name="addBarang">Edit</button>
+                                        <button type="submit" class="btn btn-primary" name="updateBarang">Edit</button>
                                     </div>
                                 </form>
                             </div>

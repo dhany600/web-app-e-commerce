@@ -21,8 +21,6 @@
         }
 
         $resultAddStock = mysqli_query($conn, "INSERT INTO barang (Nama, Deskripsi, Kategori, Harga, Stok, thumbnail, gambar_1, gambar_2) VALUES ('$namaBarang', '$deskripsiBarang', $kategoriBarang, $hargaBarang, $stokBarang, '$insertGambar[0]', '$insertGambar[1]', '$insertGambar[2]')");
-        $idBarangTerakhir = mysqli_insert_id($conn);
-
         return mysqli_affected_rows($conn);
     }
 ?>
