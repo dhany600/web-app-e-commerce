@@ -1,17 +1,17 @@
 <?php
     session_start();
+    date_default_timezone_set('Asia/Jakarta');
     require 'Function.php';
     $idSession = $_SESSION["ID"];
     
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false){
-        if(!isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == false){
+        if(isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == true){
             header("location: index.php");
         }
     }
 
-    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession");
-    $resultUser = $resultUser[0];
-    $resultBarang = querryRead("SELECT * FROM barang");
+    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession")[0];
+    $resultTranksaksi = querryRead("SELECT * FROM tranksaksi");
 ?>
 
 
@@ -53,162 +53,66 @@
         </div>
         <div class="col-md-12">
             <div class="box-container-content">
+                <?php for($i=0;$i<count($resultTranksaksi);$i++): ?>
                 <div class="row">
+                    <?php if($resultTranksaksi[$i]["Status"] == 0): ?>
                     <div class="col-md-3 no-border-left">
                         <a href="#" class="content-table">
                             <i class="fas fa-circle bayaren"></i>
-                            Bayaren
+                            Menunggu Bukti Transfer
                         </a>
                     </div>
-                    <div class="col-md-3">
-                        <a href="#" class="content-table">
-                            ID Transaksi
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#" class="content-table">
-                            Total Harga
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="row">
-                            <div class="col-md-6">
-                                Tanggal
-                            </div>
-                            <div class="col-md-6">
-                                Jam
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="box-container-content">
-                <div class="row">
+                    <?php elseif($resultTranksaksi[$i]["Status"] == 1): ?>
                     <div class="col-md-3 no-border-left">
                         <a href="#" class="content-table">
                             <i class="fas fa-circle waiting-payment"></i>
-                            Menunggu Uang Mu Mz
+                            Dalam Proses
                         </a>
                     </div>
-                    <div class="col-md-3">
-                        <a href="#" class="content-table">
-                            ID Transaksi
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#" class="content-table">
-                            Total Harga
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="row">
-                            <div class="col-md-6">
-                                Tanggal
-                            </div>
-                            <div class="col-md-6">
-                                Jam
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="box-container-content">
-                <div class="row">
+                    <?php elseif($resultTranksaksi[$i]["Status"] == 2): ?>
                     <div class="col-md-3 no-border-left">
                         <a href="#" class="content-table">
                             <i class="fas fa-circle on-shipment"></i>
-                            Barank Di Bawa Couw Rierz
+                            Barang Sedang Di kirim
                         </a>
                     </div>
-                    <div class="col-md-3">
-                        <a href="#" class="content-table">
-                            ID Transaksi
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#" class="content-table">
-                            Total Harga
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="row">
-                            <div class="col-md-6">
-                                Tanggal
-                            </div>
-                            <div class="col-md-6">
-                                Jam
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="box-container-content">
-                <div class="row">
+                    <?php elseif($resultTranksaksi[$i]["Status"] == 3): ?>
                     <div class="col-md-3 no-border-left">
                         <a href="#" class="content-table">
                             <i class="fas fa-circle item-arrived"></i>
-                            Barank Tlah Tibaaa
+                            Barang Telah Sampai
                         </a>
                     </div>
-                    <div class="col-md-3">
-                        <a href="#" class="content-table">
-                            ID Transaksi
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#" class="content-table">
-                            Total Harga
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="row">
-                            <div class="col-md-6">
-                                Tanggal
-                            </div>
-                            <div class="col-md-6">
-                                Jam
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="box-container-content">
-                <div class="row">
+                    <?php elseif($resultTranksaksi[$i]["Status"] == 4): ?>
                     <div class="col-md-3 no-border-left">
                         <a href="#" class="content-table">
                             <i class="fas fa-circle gagal-menn"></i>
-                            Gagal Menn
+                            Tranksaksi Gagal
+                        </a>
+                    </div>
+                    <?php endif ?>
+                    <div class="col-md-3">
+                        <a href="#" class="content-table">
+                            <?= $resultTranksaksi[$i]["ID"] ?>
                         </a>
                     </div>
                     <div class="col-md-3">
                         <a href="#" class="content-table">
-                            ID Transaksi
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#" class="content-table">
-                            Total Harga
+                            Rp. <?= number_format($resultTranksaksi[$i]["Total_Harga"], 2) ?>
                         </a>
                     </div>
                     <div class="col-md-3">
                         <div class="row">
                             <div class="col-md-6">
-                                Tanggal
+                                <?= explode(" ", $resultTranksaksi[$i]["Date"])[0] ?>
                             </div>
                             <div class="col-md-6">
-                                Jam
+                            <?= explode(" ", $resultTranksaksi[$i]["Date"])[1] ?>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php endfor ?>
             </div>
         </div>
     </div>
