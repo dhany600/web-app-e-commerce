@@ -154,6 +154,9 @@ section.section-1.home .box-container .col-md-4 {
   margin-left: 1.6%;
   margin-right: 1.6%;
 }
+.shopping-cart-list .content-title {
+  margin-left: -15px;
+}
 .shopping-cart-list .header-table-row {
   border: 1px solid;
 }
@@ -174,6 +177,11 @@ section.section-1.home .box-container .col-md-4 {
 }
 .shopping-cart-list .content-table-row .last-table-border {
   padding: 10px;
+}
+.shopping-cart-list .modal-button-keranjang {
+  float: right;
+  margin-right: -15px;
+  font-size: 20px;
 }
 .section-1.user-profile .container-box {
   box-shadow: #e6e6e6 0px 0px 5px 2px;
