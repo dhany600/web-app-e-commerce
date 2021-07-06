@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 06, 2021 at 02:47 PM
+-- Generation Time: Jul 06, 2021 at 07:14 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -67,10 +67,29 @@ CREATE TABLE `keranjang_belanja` (
 --
 
 INSERT INTO `keranjang_belanja` (`ID_user`, `ID_Barang`, `jumlah_barang`, `status`) VALUES
-(8, 3, 5, 0),
 (11, 1, 1, 0),
 (11, 3, 2, 0),
 (13, 1, 5, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tranksaksi`
+--
+
+CREATE TABLE `tranksaksi` (
+  `ID` varchar(20) NOT NULL,
+  `Total_Harga` int(11) NOT NULL,
+  `Date` varchar(25) NOT NULL,
+  `Status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tranksaksi`
+--
+
+INSERT INTO `tranksaksi` (`ID`, `Total_Harga`, `Date`, `Status`) VALUES
+('3', 5000000, '2021-07-06 17:07:50', 3);
 
 -- --------------------------------------------------------
 
