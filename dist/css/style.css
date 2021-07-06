@@ -163,3 +163,45 @@ section.section-1.home .box-container .col-md-4 {
   border-radius: 10px;
   padding: 35px;
 }
+.section-1.transaction-list .no-border-left {
+  border-left: none !important;
+}
+.section-1.transaction-list .col-md-3 {
+  border-left: 1px solid;
+}
+.section-1.transaction-list .table-header {
+  border: 1px solid black;
+}
+.section-1.transaction-list .table-header .col-md-3 {
+  padding: 15px;
+  text-align: center;
+}
+.section-1.transaction-list .table-header p {
+  margin-bottom: 0;
+}
+.section-1.transaction-list .box-container-content {
+  border: 1px solid;
+  border-top: none;
+}
+.section-1.transaction-list .box-container-content .col-md-3 {
+  padding: 15px;
+  text-align: left;
+}
+.section-1.transaction-list .box-container-content .col-md-3 .gagal-menn {
+  color: black;
+}
+.section-1.transaction-list .box-container-content .col-md-3 .bayaren {
+  color: red;
+}
+.section-1.transaction-list .box-container-content .col-md-3 .waiting-payment {
+  color: yellow;
+}
+.section-1.transaction-list .box-container-content .col-md-3 .on-shipment {
+  color: green;
+}
+.section-1.transaction-list .box-container-content .col-md-3 .item-arrived {
+  color: blue;
+}
+.section-1.transaction-list .box-container-content .no-border-left {
+  padding-left: 30px;
+}
