@@ -122,7 +122,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-primary">Konfirmasi</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href = 'transaction-procces.php'">Konfirmasi</button>
                     </div>
                 </div>
             </div>
