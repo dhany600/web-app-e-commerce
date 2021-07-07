@@ -7,10 +7,9 @@
         if(!isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == false){
             header("location: index.php");
         }
-    }
+    }else header("location: home.php");
 
-    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession");
-    $resultUser = $resultUser[0];
+    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession")[0];
     $resultKeranjang = querryRead("SELECT * FROM keranjang_belanja WHERE ID_user = $idSession");
 ?>
 <?php include 'header.php'; ?>
@@ -102,12 +101,14 @@
             </div>
         </div>
         <?php endfor ?>
-        <?php endif ?>
-
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary modal-button-keranjang mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary modal-button-keranjang mt-4" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
             Beli Barang
         </button>
+        <?php endif ?>
+
+
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -122,7 +123,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-primary" onclick="window.location.href = 'transaction-procces.php'">Konfirmasi</button>
+                        <button type="button" class="btn btn-primary"
+                            onclick="window.location.href = 'transaction-procces.php'">Konfirmasi</button>
                     </div>
                 </div>
             </div>

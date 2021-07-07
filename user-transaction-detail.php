@@ -11,7 +11,7 @@
     }
 
     if(isset($_POST["addBuktiTransfer"])){
-        
+        $resultuploadBuktiTF = uploadBuktiTransfer("buktiTransfer");
     }
 
     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession")[0];
@@ -128,7 +128,7 @@
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="exampleInputFile"
-                                                    name="thumb-gambar">
+                                                    name="buktiTransfer">
                                                 <label class="custom-file-label" for="exampleInputFile">Choose
                                                     file</label>
                                             </div>

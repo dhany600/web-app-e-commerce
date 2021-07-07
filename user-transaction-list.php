@@ -8,7 +8,7 @@
         if(!isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == false){
             header("location: index.php");
         }//else header("location: index.php"); 
-    }
+    }else header("location: home.php");
 
     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession")[0];
     $resultTranksaksi = querryRead("SELECT * FROM tranksaksi");

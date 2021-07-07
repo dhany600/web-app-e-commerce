@@ -41,7 +41,7 @@
         $errorState = $_FILES[$namaFilesGambar]["error"];
         if($errorState === 4){
             return "noPict";
-        }else{
+        }elseif($errorState === 0){
             $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
 
             $namaFile = $_FILES[$namaFilesGambar]["name"];
@@ -65,6 +65,35 @@
         
             return $namaFilebaru;
         }       
+    }
+
+    function uploadBuktiTransfer($data){
+        $idTranksaksi = $_GET["idt"];
+        $buktiTF =  $_FILES[$data];
+        if($buktiTF["error"] === 4){
+            return "noPict";
+        }elseif($buktiTF["error"] === 0){
+            $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+
+            $namaFile = $buktiTF["name"];
+            $tmpFile = $buktiTF["tmp_name"];
+            //pengecekan jenis file
+            $ekstensiGambar = explode(".", $namaFile);
+            $ekstensiGambar = strtolower(end($ekstensiGambar));
+            if( !in_array($ekstensiGambar,$ekstensiGambarValid)){
+                echo "<script>
+                        alert('pastikan yang anda upload gambar')
+                    </script>";
+                return false;
+            }
+            $namaFilebaru = $idTranksaksi;
+            $namaFilebaru .= ".";
+            $namaFilebaru .= $ekstensiGambar; 
+
+            move_uploaded_file($tmpFile, 'dist/img/img-bukti-transfer/' . $namaFilebaru);
+        
+            return $namaFilebaru;
+        }
     }
 
     function insertIntoDB($idbarang,$namagambar){

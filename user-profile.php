@@ -6,7 +6,7 @@
         if(!isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == false){
             header("location: index.php");
         }
-    }
+    }else header("location: home.php");
 
     if(isset($_POST["changeProfile"])){
         $resulUpdateUser = updateProfile($_POST);
