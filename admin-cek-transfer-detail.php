@@ -2,7 +2,7 @@
     session_start();
     require 'Function.php';
     $idSession = $_SESSION["ID"];
-    $idTranksaksi = $_GET["idt"];
+    
 
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false)
     {
@@ -12,18 +12,24 @@
         }else header("location: home.php");
     }
 
-    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession")[0];
-    $resultTransaksi = querryRead("SELECT * FROM tranksaksi WHERE ID = '$idTranksaksi'")[0];
-    $resultIDUserTranksaksi = $resultTransaksi["ID_user"];
-    $resultDetailTransaksi = querryRead("SELECT * FROM detail_tranksaksi WHERE ID_tranksaksi = '$idTranksaksi'");
-    $resultUserTranksaksi = querryRead("SELECT * FROM user WHERE ID = $resultIDUserTranksaksi")[0];
-    $date = explode(" ",$resultTransaksi["Date"])[0];
-    $date = date('Y-m-d', strtotime($date."+7 days"));
+    if(isset($_GET["idt"])){
+        $idTranksaksi = $_GET["idt"];
 
-    if(isset($_POST["updateDetailTransaksi"])){
-        $resultUpdate = updateDetailTransaksi($_POST,$resultTransaksi);
-        header("location: admin-cek-transfer-detail.php?idt=".$idTranksaksi);
+        
+        $resultTransaksi = querryRead("SELECT * FROM tranksaksi WHERE ID = '$idTranksaksi'")[0];
+        $resultIDUserTranksaksi = $resultTransaksi["ID_user"];
+        $resultDetailTransaksi = querryRead("SELECT * FROM detail_tranksaksi WHERE ID_tranksaksi = '$idTranksaksi'");
+        $resultUserTranksaksi = querryRead("SELECT * FROM user WHERE ID = $resultIDUserTranksaksi")[0];
+        $date = explode(" ",$resultTransaksi["Date"])[0];
+        $date = date('Y-m-d', strtotime($date."+7 days"));
+
+        if(isset($_POST["updateDetailTransaksi"])){
+            $resultUpdate = updateDetailTransaksi($_POST,$resultTransaksi);
+            header("location: admin-cek-transfer-detail.php?idt=".$idTranksaksi);
+        }
     }
+
+    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession")[0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -242,6 +248,20 @@
             <!-- /.sidebar -->
         </aside>
 
+        <?php if(!isset($_GET["idt"]) || count($resultTransaksi) < 1): ?>
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Barang Tidak Ditemukan</h1>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+        </div>
+        <?php else: ?>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -371,6 +391,8 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+        <?php endif ?>
+
         <footer class="main-footer">
             Ini Footer
         </footer>
