@@ -13,8 +13,6 @@
         }else header("location: home.php");
     }
 
-    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idsession")[0];
-
     if(isset($_POST["addBarang"])){
         $insert = insertBarang($_POST);
         if($insert > 0){
@@ -22,8 +20,8 @@
         }
     }
 
-
-    $resultKeranjang = querryRead("SELECT * FROM keranjang_belanja");
+    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idsession")[0];
+    $resultTranksaksi = querryRead("SELECT * FROM tranksaksi");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,8 +60,8 @@
                 </li> -->
             </ul>
             <a href="ClearSession.php" class="logout-button">
-                    Logout
-                </a>
+                Logout
+            </a>
             <!-- Right navbar links -->
             <!-- <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
@@ -274,33 +272,56 @@
                                 <!-- form start -->
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <?php 
-                                        for($i=0;$i<count($resultKeranjang);$i++):
-                                            $userID = $resultKeranjang[$i]["ID_user"];
-                                            $resultUserforKeranjang = querryRead("SELECT * FROM user WHERE ID = $userID")[0];
+                                        for($i=0;$i<count($resultTranksaksi);$i++):
+                                            $resultIDUserTransaksi = $resultTranksaksi[$i]["ID_user"];
+                                            $resultUserTransaksi = querryRead("SELECT * FROM user WHERE ID = $resultIDUserTransaksi")[0];
                                     ?>
-                                        <div class="card-body row <?php if($i%2 != 0) echo " bg-light color-palette mx-0"?>">
-                                            <div class="col-md-1 col-1">
-                                                <h3 class="card-title"><?= $i+1 ?></h3>
-                                            </div>
-                                            <div class="col-md-6 col-5">
-                                                <h3 class="card-title">
-                                                    <a href="#">
-                                                        lorem ipsum
-                                                    </a>
-                                                </h3>
-                                            </div>
-                                            <div class="col-md-1 col-2">
-                                                <h3 class="card-title"><?= $resultUserforKeranjang["username"] ?></h3>
-                                            </div>
-                                            <div class="col-md-1 col-2">
-                                                <h3 class="card-title">811</h3>
-                                            </div>
-                                            <div class="col-md-2 col-2">
-                                                <p>
-                                                    Date Here
-                                                </p>
-                                            </div>
+                                    <div class="card-body row <?php if($i%2 != 0) echo " bg-light color-palette mx-0"?>"
+                                        onclick="location.href='admin-cek-transfer-detail.php?idt=<?= $resultTranksaksi[$i]['ID'] ?>'">
+                                        <div class="col-md-1 col-1">
+                                            <h3 class="card-title"><?= $i+1 ?></h3>
                                         </div>
+                                        <div class="col-md-6 col-5">
+                                            <h3 class="card-title">
+                                                <a href="#">
+                                                    <?= $resultTranksaksi[$i]["ID"] ?>
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="col-md-1 col-2">
+                                            <h3 class="card-title"><?= $resultUserTransaksi["username"] ?></h3>
+                                        </div>
+                                        <div class="col-md-1 col-2">
+                                        </div>
+                                        <div class="col-md-1 col-2">
+                                            <?php if($resultTranksaksi[$i]["Status"] == 0): ?>
+                                            <h3 class="card-title">
+                                                Menunggu Bukti Transfer
+                                            </h3>
+                                            <?php elseif($resultTranksaksi[$i]["Status"] == 1): ?>
+                                            <h3 class="card-title">
+                                                Dalam Proses
+                                            </h3>
+                                            <?php elseif($resultTranksaksi[$i]["Status"] == 2): ?>
+                                            <h3 class="card-title">
+                                                Barang Sedang Di kirim
+                                            </h3>
+                                            <?php elseif($resultTranksaksi[$i]["Status"] == 3): ?>
+                                            <h3 class="card-title">
+                                                Barang Telah Sampai
+                                            </h3>
+                                            <?php elseif($resultTranksaksi[$i]["Status"] == 4): ?>
+                                            <h3 class="card-title">
+                                                Tranksaksi Gagal
+                                            </h3>
+                                            <?php endif ?>
+                                        </div>
+                                        <div class="col-md-2 col-2">
+                                            <p>
+                                                <?= $resultTranksaksi[$i]["Date"] ?>
+                                            </p>
+                                        </div>
+                                    </div>
                                     <?php endfor ?>
                                     <!-- <div class="card-body row bg-light color-palette mx-0">
                                         <div class="col-md-1 col-1 pl-0">
@@ -325,7 +346,7 @@
                                             </p>
                                         </div>
                                     </div> -->
-                                    
+
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
