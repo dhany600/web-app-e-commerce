@@ -268,11 +268,8 @@
                                         <div class="form-group col-md-1">
                                             <label for="exampleInputEmail1">Kategori</label>
                                             <select class="form-control" id="exampleFormControlSelect1" name="category">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
+                                                <option value="free base">Free base</option>
+                                                <option value="salt nicotine">Salt Nicotine</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
