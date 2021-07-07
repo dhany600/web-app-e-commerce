@@ -96,6 +96,19 @@
         }
     }
 
+    function updateDetailTransaksi($data,$transaksi){
+        global $conn;
+        $idTranksaksi = $transaksi["ID"];
+        $status = $data["Status"];
+        $noResi = $data["noResi"];
+
+        if($data["Status"] != 0 && ($transaksi["bukti_transfer"] == "" or $transaksi["bukti_transfer"] == null)){
+            echo "<script>alert('Belum ada Bukti Transfer')</script>";
+        }
+        
+        $resultUpdateTransaksi = mysqli_query($conn, "UPDATE tranksaksi SET Status = $status, no_resi = '$noResi' WHERE ID = '$idTranksaksi'");
+    }
+
     function insertIntoDB($idbarang,$namagambar){
         global $conn;
 

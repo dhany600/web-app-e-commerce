@@ -1,17 +1,17 @@
 <?php
     session_start();
     date_default_timezone_set('Asia/Bangkok');
-    require 'Function.php';
-    $idSession = $_SESSION["ID"];
-    $idTranksaksi = $_GET["idt"];
+    require 'upload-bukti-TF.php';
+  
     
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false){
         if(isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == true){
-        }else header("location: index.php");
+        }else header("location: index.php?idt=".$idTranksaksi);
     }
 
     if(isset($_POST["addBuktiTransfer"])){
-        $resultuploadBuktiTF = uploadBuktiTransfer("buktiTransfer");
+        $resultuploadBuktiTF = InsertBuktiTF("buktiTransfer");
+        header("location: user-transaction-detail.php?idt=".$idTranksaksi);
     }
 
     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession")[0];
@@ -132,12 +132,11 @@
                                                 <label class="custom-file-label" for="exampleInputFile">Choose
                                                     file</label>
                                             </div>
-
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Gambar Bukti Transfer</label>
-                                        <img src="#" alt="" class="w-100">
+                                        <img src="dist/img/img-bukti-transfer/<?= $resultTransaksi["bukti_transfer"] ?>" alt="" class="w-100">
                                     </div>
                                     <div class="form-check">
                                     </div>

@@ -108,7 +108,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <input type="text" class="form-control w-100" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="1" name="quantity">
+                                aria-describedby="emailHelp" placeholder="1" name="quantity" require>
                         </div>
                         <div class="col-md-6">
                             <!-- <a href="add-cart-item.php?barang=<?= $barang ?>" onclick="return confirm('Ingin menambahkan item ke keranjang ?')"> -->

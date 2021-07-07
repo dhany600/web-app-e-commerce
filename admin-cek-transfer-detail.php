@@ -1,6 +1,8 @@
 <?php 
     session_start();
-    require 'add-item-proccess.php';
+    require 'Function.php';
+    $idSession = $_SESSION["ID"];
+    $idTranksaksi = $_GET["idt"];
 
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false)
     {
@@ -10,11 +12,17 @@
         }else header("location: home.php");
     }
 
-    if(isset($_POST["addBarang"])){
-        $insert = insertBarang($_POST);
-        if($insert > 0){
-            header("location: admin-add-item.php");
-        }
+    $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession")[0];
+    $resultTransaksi = querryRead("SELECT * FROM tranksaksi WHERE ID = '$idTranksaksi'")[0];
+    $resultIDUserTranksaksi = $resultTransaksi["ID_user"];
+    $resultDetailTransaksi = querryRead("SELECT * FROM detail_tranksaksi WHERE ID_tranksaksi = '$idTranksaksi'");
+    $resultUserTranksaksi = querryRead("SELECT * FROM user WHERE ID = $resultIDUserTranksaksi")[0];
+    $date = explode(" ",$resultTransaksi["Date"])[0];
+    $date = date('Y-m-d', strtotime($date."+7 days"));
+
+    if(isset($_POST["updateDetailTransaksi"])){
+        $resultUpdate = updateDetailTransaksi($_POST,$resultTransaksi);
+        header("location: admin-cek-transfer-detail.php?idt=".$idTranksaksi);
     }
 ?>
 <!DOCTYPE html>
@@ -188,7 +196,7 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="#" class="d-block"><?= $idsession["username"] ?></a>
+                        <a href="#" class="d-block"><?= $resultUser["username"] ?></a>
                     </div>
                 </div>
 
@@ -253,31 +261,28 @@
                                         <div class="col-sm-4 invoice-col">
                                             From
                                             <address>
-                                                <strong>Admin, Inc.</strong><br>
-                                                795 Folsom Ave, Suite 600<br>
-                                                San Francisco, CA 94107<br>
-                                                Phone: (804) 123-5432<br>
-                                                Email: info@almasaeedstudio.com
+                                                <strong>Admin, Megah Jaya.</strong><br>
+                                                Jl. Madrasah No.14, RT.7/RW.6,<br>
+                                                Cilandak Tim., Kec. Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus
+                                                Ibukota
+                                                Jakarta 12520<br>
+                                                Phone: (031) 7315355<br>
+                                                Email: megahjaya@trains.com
                                             </address>
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-4 invoice-col">
                                             To
                                             <address>
-                                                <strong>John Doe</strong><br>
-                                                795 Folsom Ave, Suite 600<br>
-                                                San Francisco, CA 94107<br>
-                                                Phone: (555) 539-1037<br>
-                                                Email: john.doe@example.com
+                                                <strong><?= $resultUserTranksaksi["username"] ?></strong><br>
+                                                <?= $resultUserTranksaksi["alamat"] ?>
                                             </address>
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-4 invoice-col">
-                                            <b>Invoice #007612</b><br>
+                                            <b>Order ID:</b> <?= $resultTransaksi["ID"] ?><br>
                                             <br>
-                                            <b>Order ID:</b> 4F3S8J<br>
-                                            <b>Payment Due:</b> 2/22/2014<br>
-                                            <b>Account:</b> 968-34567
+                                            <b>Payment Due:</b> <?= $date ?><br>
                                         </div>
                                         <!-- /.col -->
                                     </div>
@@ -288,64 +293,50 @@
                                                     <tr>
                                                         <th>Qty</th>
                                                         <th>Product</th>
-                                                        <th>Serial #</th>
-                                                        <th>Description</th>
                                                         <th>Subtotal</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php for($i=0;$i < count($resultDetailTransaksi);$i++): 
+                                                        $idBarang = $resultDetailTransaksi[$i]["ID_Barang"];
+                                                        $resultBarang = querryRead("SELECT * FROM barang WHERE ID = $idBarang")[0];
+                                                    ?>
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Call of Duty</td>
-                                                        <td>455-981-221</td>
-                                                        <td>El snort testosterone trophy driving gloves handsome</td>
-                                                        <td>$64.50</td>
+                                                        <td><?= $resultDetailTransaksi[$i]["jumlah_barang"] ?></td>
+                                                        <td><?= $resultBarang["Nama"] ?></td>
+                                                        <td>Rp.
+                                                            <?= number_format($resultDetailTransaksi[$i]["jumlah_barang"]*$resultDetailTransaksi[$i]["harga"],2) ?>
+                                                        </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Need for Speed IV</td>
-                                                        <td>247-925-726</td>
-                                                        <td>Wes Anderson umami biodiesel</td>
-                                                        <td>$50.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Monsters DVD</td>
-                                                        <td>735-845-642</td>
-                                                        <td>Terry Richardson helvetica tousled street art master</td>
-                                                        <td>$10.70</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Grown Ups Blue Ray</td>
-                                                        <td>422-568-642</td>
-                                                        <td>Tousled lomo letterpress</td>
-                                                        <td>$25.99</td>
-                                                    </tr>
+                                                    <?php endfor ?>
                                                 </tbody>
                                             </table>
                                         </div>
                                         <!-- /.col -->
                                     </div>
-                                        <div class="card-body row">
+                                    <div class="card-body row">
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputEmail1">Nomor Resi</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data" name="name">
+                                                placeholder="Masukan Data" name="noResi"
+                                                value="<?= $resultTransaksi["no_resi"] ?>">
                                         </div>
                                         <div class="form-group col-md-1">
                                             <label for="exampleInputEmail1">Status</label>
-                                            <select class="form-control" id="exampleFormControlSelect1" name="category">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
+                                            <select class="form-control" id="exampleFormControlSelect1" name="Status">
+                                                <?php for($i=0;$i<5;$i++): ?>
+                                                <?php if($i == $resultTransaksi["Status"]): ?>
+                                                <option value="<?= $i ?>" selected><?= $i ?></option>
+                                                <?php else: ?>
+                                                <option value="<?= $i ?>"><?= $i ?></option>
+                                                <?php endif ?>
+                                                <?php endfor ?>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Gambar Bukti Transfer</label>
-                                            <img src="#" alt="" class="w-100">
+                                            <img src="dist/img/img-bukti-transfer/<?= $resultTransaksi["bukti_transfer"] ?>"
+                                                alt="" class="w-100">
                                         </div>
                                         <div class="form-check">
                                         </div>
@@ -353,7 +344,8 @@
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary" name="addBarang">Edit</button>
+                                        <button type="submit" class="btn btn-primary"
+                                            name="updateDetailTransaksi">Edit</button>
                                     </div>
                                 </form>
                             </div>

@@ -123,8 +123,13 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-primary"
+                        <?php if($resultUser["alamat"] === null or $resultUser["alamat"] === " "): ?>
+                            <button type="button" class="btn btn-primary"
+                            onclick="window.location.href = 'user-profile.php'">Konfirmasi</button>
+                        <?php else: ?>
+                            <button type="button" class="btn btn-primary"
                             onclick="window.location.href = 'transaction-procces.php'">Konfirmasi</button>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>
