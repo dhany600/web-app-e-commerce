@@ -208,18 +208,30 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link active">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="admin-dashboard-home.php" class="nav-link active">
                                 <p>
-                                    Widgets
+                                    Home
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="admin-edit-item.php" class="nav-link">
                                 <p>
-                                    Widgets
+                                    List Item
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-add-item.php" class="nav-link">
+                                <p>
+                                    Add Item
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-cek-transfer.php" class="nav-link">
+                                <p>
+                                    Transaction List
                                 </p>
                             </a>
                         </li>
