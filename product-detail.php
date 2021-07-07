@@ -42,12 +42,37 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="col-md-12">
-                    <img src="#" alt="" class="product-detail-image main-image">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="dist/img/img-src-barang/<?= $resultBarang["thumbnail"] ?>" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="dist/img/img-src-barang/<?= $resultBarang["gambar_1"] ?>" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="dist/img/img-src-barang/<?= $resultBarang["gambar_2"] ?>" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="dist/img/img-src-barang/<?= $resultBarang["gambar_3"] ?>" alt="Third slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-md-3">
                         <img src="dist/img/img-src-barang/<?= $resultBarang["thumbnail"] ?>" alt=""
-                            class="product-detail-image selection-image">
+                        class="product-detail-image selection-image">
                     </div>
                     <div class="col-md-3">
                         <img src="dist/img/img-src-barang/<?= $resultBarang["gambar_1"] ?>" alt=""

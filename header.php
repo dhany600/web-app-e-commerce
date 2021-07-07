@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="dist/css/style.css">
     <script src="https://kit.fontawesome.com/54c91e5a63.js" crossorigin="anonymous"></script>
     <title>MEGAH JAYA</title>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 </head>
 
 <body>
     <section class="header">
         <div class="prelative py-3 mt-0">
             <a href="home.php">
-                <img src="dist/img/img-src/web-logo.png" alt="" id="kembali-keatas">
+                <img src="dist/img/img-src/web-logo.png" alt="" id="kembali-keatas" class="web-logo-header">
             </a>
             <div class="float-right">
                 <div class="col-md-12">
@@ -30,7 +32,7 @@
                     <a href="keranjang-belanja.php" class="navigation-button">
                         <i class="fas fa-cart-plus"></i>
                     </a>
-                    <a href="user-transaction-list.php" class="navigation-button">
+                    <a href="user-transaction-list.php" class="navigation-button px-3">
                         <i class="fas fa-history"></i>
                     </a>
                     <a href="user-profile.php" class="navigation-button">

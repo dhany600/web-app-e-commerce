@@ -1,3 +1,101 @@
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWbBXyIfDnIV7nEt3KSJbVDV49rz8sDE0Uw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWbBXyIfDnIV7nEt3KSJbVDV49rz8tdE0Uw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWbBXyIfDnIV7nEt3KSJbVDV49rz8tvE0Uw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWbBXyIfDnIV7nEt3KSJbVDV49rz8uDFEUw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWbBXyIfDnIV7nEt3KSJbVDV49rz8u6FEUw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWbBXyIfDnIV7nEt3KSJbVDV49rz8vdFEUw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWbBXyIfDnIV7nEt3KSJbVDV49rz8v0FEUw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-WYi1UA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-B4i1UA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-NYi1UA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-2Y-1UA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-4I-1UA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-h4-1UA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-ro-1UA.ttf) format('truetype');
+}
 body {
   padding: 0;
   margin: 0;
@@ -47,6 +145,9 @@ section.header {
   background-color: #fff;
   box-shadow: 0px 1px 0px 0px #e5e5e5;
 }
+section.header .web-logo-header {
+  height: 70px;
+}
 section.header .float-right {
   float: right;
 }
@@ -79,10 +180,18 @@ section.header .back-to-top {
   border-radius: 15px;
   padding: 0px 9px;
   background-color: #fff;
+  z-index: 10;
 }
 section.header .back-to-top:hover {
   box-shadow: #e6e6e6 0px 0px 5px 2px;
   background-color: #fff;
+}
+section.section-1.home {
+  margin-top: -25px;
+}
+section.section-1.home .carousel-inner {
+  height: 550px;
+  background-color: grey;
 }
 section.section-1.home .box-container:hover {
   border: 1px solid lightblue;
@@ -100,7 +209,7 @@ section.section-1.home .box-container .product-price-catalog {
   line-height: 200px;
   font-size: 15px;
   font-weight: 400;
-  font-family: Rubik;
+  font-family: 'Rubik', sans-serif;
 }
 section.section-1.home .box-container .product-image-catalog {
   height: 200px;
@@ -113,6 +222,17 @@ section.section-1.home .box-container .col-md-4 {
   box-shadow: 0px 1px 0px 0px #e5e5e5;
   padding: 0 0 60px 0;
   margin: 90px 90px 30px 90px;
+}
+.section-1.product-detail .carousel-item {
+  height: 375px;
+  width: 375px;
+}
+.section-1.product-detail .carousel-item img.d-block.w-100 {
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .section-1.product-detail .product-detail-image {
   box-shadow: #e6e6e6 0px 0px 5px 2px;
@@ -218,7 +338,6 @@ section.section-1.home .box-container .col-md-4 {
 .section-footer {
   border-top: 1px #e5e5e5 solid;
   background-color: #fec20d;
-  color: white;
 }
 .section-footer .footer-social-media .content-title.media-social-icon-item {
   display: inline-block;
