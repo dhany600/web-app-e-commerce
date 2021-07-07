@@ -20,7 +20,7 @@
             array_push($insertGambar,$namaGambar);
         }
 
-        $resultAddStock = mysqli_query($conn, "INSERT INTO barang (Nama, Deskripsi, Kategori, Harga, Stok, thumbnail, gambar_1, gambar_2) VALUES ('$namaBarang', '$deskripsiBarang', $kategoriBarang, $hargaBarang, $stokBarang, '$insertGambar[0]', '$insertGambar[1]', '$insertGambar[2]')");
+        $resultAddStock = mysqli_query($conn, "INSERT INTO barang (Nama, Deskripsi, Kategori, Harga, Stok, thumbnail, gambar_1, gambar_2) VALUES ('$namaBarang', '$deskripsiBarang', '$kategoriBarang', $hargaBarang, $stokBarang, '$insertGambar[0]', '$insertGambar[1]', '$insertGambar[2]')");
         return mysqli_affected_rows($conn);
     }
 ?>
