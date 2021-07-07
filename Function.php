@@ -37,7 +37,7 @@
         return mysqli_affected_rows($conn);
     }
 
-    function upload($namaFilesGambar){
+    function uploadGambarBarang($namaFilesGambar){
         $errorState = $_FILES[$namaFilesGambar]["error"];
         if($errorState === 4){
             return "noPict";

@@ -17,7 +17,7 @@
         $insertGambar = [];
 
         for($i=0;$i<3;$i++){
-            $namaGambar = upload($namaFileGambar[$i]);
+            $namaGambar = uploadGambarBarang($namaFileGambar[$i]);
             if($namaGambar == "noPict"){
                 array_push($insertGambar,"$oldbarangPict[$i]");
             }else{

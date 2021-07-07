@@ -30,7 +30,7 @@
                     <a href="keranjang-belanja.php" class="navigation-button">
                         <i class="fas fa-cart-plus"></i>
                     </a>
-                    <a href="#" class="navigation-button">
+                    <a href="user-transaction-list.php" class="navigation-button">
                         <i class="fas fa-history"></i>
                     </a>
                     <a href="user-profile.php" class="navigation-button">

@@ -16,7 +16,7 @@
         $insertGambar = [];
 
         for($i=0;$i<3;$i++){
-            $namaGambar = upload($namaFileGambar[$i]);
+            $namaGambar = uploadGambarBarang($namaFileGambar[$i]);
             array_push($insertGambar,$namaGambar);
         }
 

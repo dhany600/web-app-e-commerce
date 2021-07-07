@@ -5,9 +5,9 @@
     $idSession = $_SESSION["ID"];
     
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false){
-        if(isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == true){
+        if(!isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == false){
             header("location: index.php");
-        }
+        }//else header("location: index.php"); 
     }
 
     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession")[0];
@@ -54,7 +54,7 @@
         <div class="col-md-12">
             <div class="box-container-content">
                 <?php for($i=0;$i<count($resultTranksaksi);$i++): ?>
-                <div class="row">
+                <div class="row" onclick="location.href='user-transaction-detail.php?idt=<?= $resultTranksaksi[$i]['ID'] ?>'">
                     <?php if($resultTranksaksi[$i]["Status"] == 0): ?>
                     <div class="col-md-3 no-border-left">
                         <a href="#" class="content-table">
@@ -107,7 +107,7 @@
                                 <?= explode(" ", $resultTranksaksi[$i]["Date"])[0] ?>
                             </div>
                             <div class="col-md-6">
-                            <?= explode(" ", $resultTranksaksi[$i]["Date"])[1] ?>
+                                <?= explode(" ", $resultTranksaksi[$i]["Date"])[1] ?>
                             </div>
                         </div>
                     </div>

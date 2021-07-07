@@ -3,16 +3,20 @@
     date_default_timezone_set('Asia/Bangkok');
     require 'Function.php';
     $idSession = $_SESSION["ID"];
+    $idTranksaksi = $_GET["idt"];
     
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false){
         if(isset($_SESSION["LoginUser"]) || $_SESSION["LoginUser"] == true){
         }else header("location: index.php");
     }
 
+    if(isset($_POST["addBuktiTransfer"])){
+        
+    }
+
     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession")[0];
-    $resultTransaksi = querryRead("SELECT * FROM tranksaksi WHERE ID_user = $idSession")[0];
-    $idTranksaksi = $resultTransaksi["ID"];
-    $resultDetailTransaksi = querryRead("SELECT * FROM detail_tranksaksi WHERE ID_tranksaksi = $idTranksaksi");
+    $resultTransaksi = querryRead("SELECT * FROM tranksaksi WHERE ID_user = $idSession AND ID = '$idTranksaksi'")[0];
+    $resultDetailTransaksi = querryRead("SELECT * FROM detail_tranksaksi WHERE ID_tranksaksi = '$idTranksaksi'");
     $date = explode(" ",$resultTransaksi["Date"])[0];
     $date = date('Y-m-d', strtotime($date."+7 days"));
 ?>
@@ -76,18 +80,14 @@
                                     <div class="col-sm-4 invoice-col">
                                         To
                                         <address>
-                                            <strong><?= $resultUser["username"] ?></strong><br>
-                                            795 Folsom Ave, Suite 600<br>
-                                            San Francisco, CA 94107<br>
-                                            Phone: (555) 539-1037<br>
-                                            Email: john.doe@example.com
+                                            <strong><?= $resultUser["username"] ?>.</strong><br>
+                                            <?= $resultUser["alamat"] ?>
                                         </address>
                                     </div>
                                     <!-- /.col -->
                                     <div class="col-sm-4 invoice-col">
-                                        <b>Invoice #007612</b><br>
-                                        <br>
                                         <b>Order ID:</b> <?= $resultTransaksi["ID"] ?><br>
+                                        <br>
                                         <b>Payment Due:</b> <?= $date ?> <br>
                                         <b>Account:</b> 968-34567
                                     </div>
@@ -145,7 +145,7 @@
                                 <!-- /.card-body -->
                                 <!-- Buttonnya nanti hanya diperuntukan admin -->
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary" name="addBarang">Edit</button>
+                                    <button type="submit" class="btn btn-primary" name="addBuktiTransfer">Edit</button>
                                 </div>
                             </form>
                         </div>
