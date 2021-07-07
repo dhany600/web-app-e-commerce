@@ -132,7 +132,6 @@
                                                 <label class="custom-file-label" for="exampleInputFile">Choose
                                                     file</label>
                                             </div>
-
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">

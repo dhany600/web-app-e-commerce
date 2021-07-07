@@ -11,7 +11,7 @@
     }else header("location: home.php");
 
     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession")[0];
-    $resultTranksaksi = querryRead("SELECT * FROM tranksaksi");
+    $resultTranksaksi = querryRead("SELECT * FROM tranksaksi WHERE ID_user = $idSession");
 ?>
 
 

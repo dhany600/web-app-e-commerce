@@ -12,13 +12,6 @@
         }else header("location: home.php");
     }
 
-    if(isset($_POST["addBarang"])){
-        $insert = insertBarang($_POST);
-        if($insert > 0){
-            header("location: admin-add-item.php");
-        }
-    }
-
     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idSession")[0];
     $resultTransaksi = querryRead("SELECT * FROM tranksaksi WHERE ID = '$idTranksaksi'")[0];
     $resultIDUserTranksaksi = $resultTransaksi["ID_user"];
@@ -26,6 +19,11 @@
     $resultUserTranksaksi = querryRead("SELECT * FROM user WHERE ID = $resultIDUserTranksaksi")[0];
     $date = explode(" ",$resultTransaksi["Date"])[0];
     $date = date('Y-m-d', strtotime($date."+7 days"));
+
+    if(isset($_POST["updateDetailTransaksi"])){
+        $resultUpdate = updateDetailTransaksi($_POST,$resultTransaksi);
+        header("location: admin-cek-transfer-detail.php?idt=".$idTranksaksi);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -281,7 +279,7 @@
                                             </address>
                                         </div>
                                         <!-- /.col -->
-                                        <div class="col-sm-4 invoice-col">     
+                                        <div class="col-sm-4 invoice-col">
                                             <b>Order ID:</b> <?= $resultTransaksi["ID"] ?><br>
                                             <br>
                                             <b>Payment Due:</b> <?= $date ?><br>
@@ -300,15 +298,16 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php for($i=0;$i < count($resultDetailTransaksi);$i++): 
-                                                        var_dump($resultDetailTransaksi[$i]);
                                                         $idBarang = $resultDetailTransaksi[$i]["ID_Barang"];
                                                         $resultBarang = querryRead("SELECT * FROM barang WHERE ID = $idBarang")[0];
                                                     ?>
-                                                        <tr>
-                                                            <td><?= $resultDetailTransaksi[$i]["jumlah_barang"] ?></td>
-                                                            <td><?= $resultBarang["Nama"] ?></td>
-                                                            <td>Rp. <?= number_format($resultDetailTransaksi[$i]["jumlah_barang"]*$resultDetailTransaksi[$i]["harga"],2) ?></td>
-                                                        </tr>
+                                                    <tr>
+                                                        <td><?= $resultDetailTransaksi[$i]["jumlah_barang"] ?></td>
+                                                        <td><?= $resultBarang["Nama"] ?></td>
+                                                        <td>Rp.
+                                                            <?= number_format($resultDetailTransaksi[$i]["jumlah_barang"]*$resultDetailTransaksi[$i]["harga"],2) ?>
+                                                        </td>
+                                                    </tr>
                                                     <?php endfor ?>
                                                 </tbody>
                                             </table>
@@ -319,21 +318,25 @@
                                         <div class="form-group col-md-6">
                                             <label for="exampleInputEmail1">Nomor Resi</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Masukan Data" name="name">
+                                                placeholder="Masukan Data" name="noResi"
+                                                value="<?= $resultTransaksi["no_resi"] ?>">
                                         </div>
                                         <div class="form-group col-md-1">
                                             <label for="exampleInputEmail1">Status</label>
-                                            <select class="form-control" id="exampleFormControlSelect1" name="category">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
+                                            <select class="form-control" id="exampleFormControlSelect1" name="Status">
+                                                <?php for($i=0;$i<5;$i++): ?>
+                                                <?php if($i == $resultTransaksi["Status"]): ?>
+                                                <option value="<?= $i ?>" selected><?= $i ?></option>
+                                                <?php else: ?>
+                                                <option value="<?= $i ?>"><?= $i ?></option>
+                                                <?php endif ?>
+                                                <?php endfor ?>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Gambar Bukti Transfer</label>
-                                            <img src="#" alt="" class="w-100">
+                                            <img src="dist/img/img-bukti-transfer/<?= $resultTransaksi["bukti_transfer"] ?>"
+                                                alt="" class="w-100">
                                         </div>
                                         <div class="form-check">
                                         </div>
@@ -341,7 +344,8 @@
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary" name="addBarang">Edit</button>
+                                        <button type="submit" class="btn btn-primary"
+                                            name="updateDetailTransaksi">Edit</button>
                                     </div>
                                 </form>
                             </div>
