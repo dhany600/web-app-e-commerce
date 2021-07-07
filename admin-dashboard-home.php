@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    require 'add-item-proccess.php';
+    require 'Function.php';
 
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false)
     {
@@ -10,12 +10,8 @@
         }else header("location: home.php");
     }
 
-    if(isset($_POST["addBarang"])){
-        $insert = insertBarang($_POST);
-        if($insert > 0){
-            header("location: admin-add-item.php");
-        }
-    }
+    $resultJumlahuser = count(querryRead("SELECT * FROM user WHERE Status = 0"));
+    $resultJumlahTranksaksi = count(querryRead("SELECT * FROM tranksaksi"));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -236,9 +232,9 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>150</h3>
+                                    <h3><?= $resultJumlahTranksaksi ?></h3>
 
-                                    <p>New Orders</p>
+                                    <p>Orders</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
@@ -248,9 +244,9 @@
                             </div>
                         </div>
                         <!-- ./col -->
-                        <div class="col-lg-3 col-6">
+                        <!-- <div class="col-lg-3 col-6"> -->
                             <!-- small box -->
-                            <div class="small-box bg-success">
+                            <!-- <div class="small-box bg-success">
                                 <div class="inner">
                                     <h3>53<sup style="font-size: 20px">%</sup></h3>
 
@@ -261,14 +257,14 @@
                                 </div>
                                 <a href="#" class="small-box-footer">More info <i
                                         class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
+                            </div> -->
+                        <!-- </div> -->
                         <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3>44</h3>
+                                    <h3><?= $resultJumlahuser ?></h3>
 
                                     <p>User Registrations</p>
                                 </div>
@@ -282,8 +278,8 @@
                         <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-danger">
-                                <div class="inner">
+                            <!-- <div class="small-box bg-danger"> -->
+                                <!-- <div class="inner">
                                     <h3>65</h3>
 
                                     <p>Unique Visitors</p>
@@ -292,8 +288,8 @@
                                     <i class="ion ion-pie-graph"></i>
                                 </div>
                                 <a href="#" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
-                            </div>
+                                        class="fas fa-arrow-circle-right"></i></a> -->
+                            <!-- </div> -->
                         </div>
                         <!-- ./col -->
                     </div>
