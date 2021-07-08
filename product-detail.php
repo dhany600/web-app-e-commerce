@@ -95,9 +95,9 @@
                 <p class="product-price mt-3 pb-3">
                     Rp.<?= number_format($resultBarang["Harga"],2) ?>
                 </p>
-                <p class="content-paragraph">
-                    <?= $resultBarang["Deskripsi"] ?>
-                </p>
+                <pre class="content-pre-paragraph">
+<?= $resultBarang["Deskripsi"] ?>
+                </pre>
             </div>
             <div class="col-md-2">
                 <form action="#" method="post">

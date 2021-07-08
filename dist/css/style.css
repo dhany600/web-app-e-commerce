@@ -114,7 +114,8 @@ h6 {
   font-weight: bold;
   color: #43484d;
 }
-p {
+p,
+pre {
   font-family: Rubik, sans-serif;
   color: #43484d;
 }
@@ -222,6 +223,9 @@ section.section-1.home .box-container .col-md-4 {
   box-shadow: 0px 1px 0px 0px #e5e5e5;
   padding: 0 0 60px 0;
   margin: 90px 90px 30px 90px;
+}
+.section-1.product-detail .content-pre-paragraph {
+  overflow-x: hidden;
 }
 .section-1.product-detail .carousel-item {
   height: 375px;

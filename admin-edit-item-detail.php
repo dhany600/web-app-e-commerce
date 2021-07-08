@@ -195,7 +195,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="admin-dashboard-home.php" class="nav-link active">
+                            <a href="admin-dashboard-home.php" class="nav-link">
                                 <p>
                                     Home
                                 </p>
