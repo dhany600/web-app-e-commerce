@@ -112,7 +112,7 @@
                                                     <tr>
                                                         <td><?= $resultDetailTransaksi[$i]["jumlah_barang"] ?></td>
                                                         <td><?= $resultBarang["Nama"] ?></td>
-                                                        <td>Rp.<?= number_format($resultDetailTransaksi[$i]["jumlah_barang"]*$resultDetailTransaksi[$i]["harga"],2) ?></td>
+                                                        <td>Rp.<?= number_format($resultDetailTransaksi[$i]["harga"],2) ?></td>
                                                     </tr>
                                                 <?php endfor ?>
                                             </tbody>
