@@ -21,7 +21,7 @@
     }
 
     $resultUser = querryRead("SELECT * FROM user WHERE ID = $idsession")[0];
-    $resultTranksaksi = querryRead("SELECT * FROM tranksaksi");
+    $resultTranksaksi = querryRead("SELECT * FROM tranksaksi WHERE ID_Penjual = $idsession");
 ?>
 <!DOCTYPE html>
 <html lang="en">

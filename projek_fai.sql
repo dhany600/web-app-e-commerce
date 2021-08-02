@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 02, 2021 at 03:34 AM
+-- Generation Time: Aug 02, 2021 at 03:40 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -98,6 +98,7 @@ CREATE TABLE `keranjang_belanja` (
 CREATE TABLE `tranksaksi` (
   `ID` varchar(25) NOT NULL,
   `ID_user` int(11) NOT NULL,
+  `ID_Penjual` int(11) NOT NULL,
   `Total_Harga` int(11) NOT NULL,
   `Date` varchar(25) NOT NULL,
   `Status` int(1) DEFAULT '0',
@@ -109,12 +110,12 @@ CREATE TABLE `tranksaksi` (
 -- Dumping data for table `tranksaksi`
 --
 
-INSERT INTO `tranksaksi` (`ID`, `ID_user`, `Total_Harga`, `Date`, `Status`, `bukti_transfer`, `no_resi`) VALUES
-('820210707150751', 8, 250000, '2021-07-07 15:07:51', 2, '820210707150751.png', '123456'),
-('820210707150701', 8, 250000, '2021-07-07 15:07:01', 1, '820210707150701.png', '123456'),
-('1320210707200701', 13, 250000, '2021-07-07 20:07:01', 1, '1320210707200701.jpg', ''),
-('820210707230739', 8, 255000, '2021-07-07 23:07:39', 0, NULL, NULL),
-('820210802090834', 8, 420000, '2021-08-02 09:08:34', 0, '820210802090834.png', NULL);
+INSERT INTO `tranksaksi` (`ID`, `ID_user`, `ID_Penjual`, `Total_Harga`, `Date`, `Status`, `bukti_transfer`, `no_resi`) VALUES
+('820210707150751', 8, 15, 250000, '2021-07-07 15:07:51', 2, '820210707150751.png', '123456'),
+('820210707150701', 8, 15, 250000, '2021-07-07 15:07:01', 1, '820210707150701.png', '123456'),
+('1320210707200701', 13, 15, 250000, '2021-07-07 20:07:01', 1, '1320210707200701.jpg', ''),
+('820210707230739', 8, 15, 255000, '2021-07-07 23:07:39', 0, NULL, NULL),
+('820210802090834', 8, 15, 420000, '2021-08-02 09:08:34', 0, '820210802090834.png', NULL);
 
 -- --------------------------------------------------------
 
