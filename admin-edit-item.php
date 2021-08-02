@@ -2,6 +2,7 @@
     session_start();
     require 'add-item-proccess.php';
     $idsession = $_SESSION["ID"];
+    $resultBarang = querryRead("SELECT * FROM barang WHERE Pemilik = $idsession");
     $idsession = querryRead("SELECT * FROM user WHERE id = $idsession")[0];
 
     if(!isset($_SESSION["LoginAdmin"]) || $_SESSION["LoginAdmin"] == false)
@@ -11,8 +12,6 @@
             header("location: index.php") ;
         }else header("location: home.php");
     }
-
-    $resultBarang = querryRead("SELECT * FROM barang");
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,11 +1,13 @@
 <?php
     require 'Function.php';
     $idsession = $_SESSION["ID"];
+    $idPemilik = $idsession;
     $idsession = querryRead("SELECT * FROM user WHERE id = $idsession")[0];
 
     function insertBarang($data)
     {
         global $conn;
+        global $idPemilik;
 
         $namaBarang = $data["name"];
         $hargaBarang = $data["price"];
@@ -20,7 +22,7 @@
             array_push($insertGambar,$namaGambar);
         }
 
-        $resultAddStock = mysqli_query($conn, "INSERT INTO barang (Nama, Deskripsi, Kategori, Harga, Stok, thumbnail, gambar_1, gambar_2) VALUES ('$namaBarang', '$deskripsiBarang', '$kategoriBarang', $hargaBarang, $stokBarang, '$insertGambar[0]', '$insertGambar[1]', '$insertGambar[2]')");
+        $resultAddStock = mysqli_query($conn, "INSERT INTO barang (Nama, Deskripsi, Kategori, Harga, Stok, Pemilik,thumbnail, gambar_1, gambar_2) VALUES ('$namaBarang', '$deskripsiBarang', '$kategoriBarang', $hargaBarang, $stokBarang, $idPemilik, '$insertGambar[0]', '$insertGambar[1]', '$insertGambar[2]')");
         return mysqli_affected_rows($conn);
     }
 ?>

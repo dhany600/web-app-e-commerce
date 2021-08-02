@@ -18,7 +18,7 @@
 <?php include 'header.php'; ?>
 <!-- header -->
 <section class="section-1 home">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="https://images.pexels.com/photos/1391465/pexels-photo-1391465.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block w-100" alt="...">
@@ -40,7 +40,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </div> -->
     <div class="prelative pt-0">
         <h3 class="content-title mt-5">
             Product
@@ -56,7 +56,13 @@
                         <div class="row">
                             <div class="col-md-8 px-5 py-4">
                                 <p class="product-title-catalog">
-                                    <?= $resultBarang[$i]["Nama"] ?>
+                                    <?php 
+                                        $IDPemilik = $resultBarang[$i]["Pemilik"];
+                                        $pemilik = querryRead("SELECT username FROM user Where ID = $IDPemilik")[0];
+                                        $pemilik = $pemilik["username"];
+                                    ?>
+                                    <?= $resultBarang[$i]["Nama"] ?><br>
+                                    (<?= $pemilik ?>)
                                 </p>
                                 <p class="product-price-catalog">
                                     Rp. <?= number_format($resultBarang[$i]["Harga"],2) ?>

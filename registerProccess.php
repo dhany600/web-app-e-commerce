@@ -17,13 +17,24 @@
                     return "usedEmail";
                 }
             }
-            //enkripsi password
-            $password = password_hash($password, PASSWORD_DEFAULT);
+            if(isset($data["isPenjual"])){
+                //enkripsi password
+                $password = password_hash($password, PASSWORD_DEFAULT);
 
-            //insert into database
-            $result = mysqli_query($conn, "INSERT INTO user (username, password, email) VALUES ('$username', '$password', '$email')");
+                //insert into database
+                $result = mysqli_query($conn, "INSERT INTO user (username, password, email, Status) VALUES ('$username', '$password', '$email', 1)");
 
-            return mysqli_affected_rows($conn);
+                return mysqli_affected_rows($conn);
+            }else{
+                //enkripsi password
+                $password = password_hash($password, PASSWORD_DEFAULT);
+
+                //insert into database
+                $result = mysqli_query($conn, "INSERT INTO user (username, password, email) VALUES ('$username', '$password', '$email')");
+
+                return mysqli_affected_rows($conn);
+            }
+            
         }
     }
 ?>

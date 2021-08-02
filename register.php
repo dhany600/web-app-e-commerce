@@ -83,6 +83,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="input-group mb-3">
+                        <label for="isPenjual">Ingin Menjadi Penjual</label>
+                        <input type="checkbox" name="isPenjual" id="isPenjual">
+                    </div>
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-md-12 my-3">
