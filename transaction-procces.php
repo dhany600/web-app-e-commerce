@@ -13,8 +13,10 @@
         $jumlahBarangKeranjang = $resultKeranjang[$i]["jumlah_barang"];
         $resultHargaBarang = querryRead("SELECT Harga FROM barang WHERE ID = $idBarang")[0];
         $resultHargaBarang = $resultHargaBarang["Harga"]*$jumlahBarangKeranjang;
+        $idPemilik = querryRead("SELECT Pemilik FROM barang where ID = $idBarang")[0];
+        $idPemilik = $idPemilik["Pemilik"];
         
-        $resultInsertDetailtranksaksi = mysqli_query($conn,"INSERT INTO detail_tranksaksi (ID_tranksaksi,ID_Barang,jumlah_barang,harga) VALUES ('$idTranksaksi',$idBarang,$jumlahBarangKeranjang,$resultHargaBarang)");
+        $resultInsertDetailtranksaksi = mysqli_query($conn,"INSERT INTO detail_tranksaksi (ID_tranksaksi,ID_Barang,jumlah_barang,harga,Pemilik) VALUES ('$idTranksaksi',$idBarang,$jumlahBarangKeranjang,$resultHargaBarang,$idPemilik)");
         $updateStokBarang = mysqli_query($conn, "UPDATE barang SET Stok = Stok - $jumlahBarangKeranjang WHERE ID = $idBarang");
         $totalHarga += $resultHargaBarang;
     }
