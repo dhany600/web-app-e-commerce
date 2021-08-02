@@ -38,9 +38,6 @@
                     <a href="user-profile.php" class="navigation-button">
                         <i class="fas fa-user"></i>
                     </a>
-                    <a href="#">
-                        <p>Dashboard</p>
-                    </a>
                 </div>
             </div>
             <a class="back-to-top" href="#kembali-keatas">

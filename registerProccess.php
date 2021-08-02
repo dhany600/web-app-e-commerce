@@ -30,7 +30,7 @@
                 $password = password_hash($password, PASSWORD_DEFAULT);
 
                 //insert into database
-                $result = mysqli_query($conn, "INSERT INTO user (username, password, email) VALUES ('$username', '$password', '$email')");
+                $result = mysqli_query($conn, "INSERT INTO user (username, password, email, Status) VALUES ('$username', '$password', '$email', 0)");
 
                 return mysqli_affected_rows($conn);
             }
